@@ -1,0 +1,176 @@
+Convirtiendo script GML: ${project_dir}\scripts\AcceleScr\AcceleScr.gml
+Descripción convertida /// @description  Aceleracion
+
+Convirtiendo script GML: ${project_dir}\scripts\LoadSlot\LoadSlot.gml
+Error: la variable "bool" tiene el mismo nombre que una (función, constante o variable) incluida, para funcionar correctamente debe renombrarse
+
+El icono macOS ${options_dir}\mac\icons\icon512.png se ha escrito como de 32-bit
+El script del instalador de Windows NSIS se ha pasado a predeterminado debido a cambios en GameMaker Studio 2
+La fuente Console se ha convertido a la familia de fuentes Multimino_Font (Regular)
+Se ha realizado una copia de seguridad de la textura de la fuente de GameMaker Studio 1 en ${project_dir}\fonts\Console\Console.gms1.png
+La fuente Console_Title se ha convertido a la familia de fuentes Multimino_Font (Regular)
+Se ha realizado una copia de seguridad de la textura de la fuente de GameMaker Studio 1 en ${project_dir}\fonts\Console_Title\Console_Title.gms1.png
+La fuente ComboNum se ha convertido a la familia de fuentes Pixelnumbers (Regular)
+Se ha realizado una copia de seguridad de la textura de la fuente de GameMaker Studio 1 en ${project_dir}\fonts\ComboNum\ComboNum.gms1.png
+Convirtiendo script GML: ${project_dir}\objects\Polyminoe\Create_0.gml
+Descripción convertida /// @description Valores iniciales
+
+Convirtiendo script GML: ${project_dir}\objects\Polyminoe\Step_0.gml
+Descripción convertida /// @description Movimiento horizontal y rotacion
+
+Convirtiendo script GML: ${project_dir}\objects\Polyminoe\Draw_0.gml
+Descripción convertida /// @description Ghost
+
+Convirtiendo script GML: ${project_dir}\objects\Placed\Draw_0.gml
+Descripción convertida /// @description Flash
+
+Convirtiendo script GML: ${project_dir}\objects\ComboArt\Create_0.gml
+Descripción convertida /// @description Declaracion de variables
+
+Convirtiendo script GML: ${project_dir}\objects\ComboArt\Step_0.gml
+Cadena incluida - línea 11: view_xview[0] = 0 + CurrentVel -> __view_set( e__VW.XView, 0, 0 + CurrentVel )
+Cadena incluida - línea 19: view_xview[0] = 0 + CurrentVel -> __view_set( e__VW.XView, 0, 0 + CurrentVel )
+Cadena incluida - línea 30: view_xview[0] = 0 + CurrentVel -> __view_set( e__VW.XView, 0, 0 + CurrentVel )
+Cadena incluida - línea 35: view_yview[0] = 0 + VerVel -> __view_set( e__VW.YView, 0, 0 + VerVel )
+Descripción convertida /// @description Matrix shift
+
+Convirtiendo script GML: ${project_dir}\objects\ComboArt\Draw_0.gml
+Descripción convertida /// @description Bonificaciones
+
+Convirtiendo script GML: ${project_dir}\objects\Control\Create_0.gml
+Descripción convertida /// @description Inicializacion
+
+Convirtiendo script GML: ${project_dir}\objects\Control\Alarm_1.gml
+Descripción convertida /// @description Piece reset
+
+Convirtiendo script GML: ${project_dir}\objects\Control\Step_0.gml
+Descripción convertida /// @description Creacion de lineas
+Cadena convertida - línea 122: 'X' -> "X"
+
+Convirtiendo script GML: ${project_dir}\objects\Control\Draw_0.gml
+Descripción convertida /// @description Animacion de limpieza
+Cadena convertida - línea 82: 'M' -> "M"
+Cadena convertida - línea 103: '0' -> "0"
+Cadena convertida - línea 106: ':' -> ":"
+Cadena convertida - línea 106: '.' -> "."
+
+Convirtiendo script GML: ${project_dir}\objects\Control\KeyPress_27.gml
+Descripción convertida /// @description Pausa
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Create_0.gml
+Descripción convertida /// @description Definicion de variables
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Alarm_3.gml
+Descripción convertida /// @description Wait for next battle
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Alarm_2.gml
+Descripción convertida /// @description ResetFlag
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Alarm_1.gml
+Descripción convertida /// @description Activate
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Alarm_0.gml
+Descripción convertida /// @description None
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Step_0.gml
+Error: la variable "bool" tiene el mismo nombre que una (función, constante o variable) incluida, para funcionar correctamente debe renombrarse
+Descripción convertida /// @description GameMode
+Cadena convertida - línea 397: 'S' -> "S"
+Cadena convertida - línea 450: 'D' -> "D"
+Cadena convertida - línea 450: 'A' -> "A"
+Cadena convertida - línea 453: 'D' -> "D"
+Cadena convertida - línea 454: 'A' -> "A"
+
+Convirtiendo script GML: ${project_dir}\objects\GameMode\Draw_0.gml
+Error: la variable "bool" tiene el mismo nombre que una (función, constante o variable) incluida, para funcionar correctamente debe renombrarse
+Descripción convertida /// @description Garbage bar, Tip for spin board
+
+Convirtiendo script GML: ${project_dir}\objects\Menu\Step_0.gml
+Descripción convertida /// @description Movimiento por el menu
+
+Convirtiendo script GML: ${project_dir}\objects\Menu\Draw_0.gml
+Descripción convertida /// @description Control de sprites
+
+Convirtiendo script GML: ${project_dir}\objects\Menu\KeyPress_13.gml
+Descripción convertida /// @description Selector
+
+Convirtiendo script GML: ${project_dir}\objects\Menu\KeyPress_8.gml
+Descripción convertida /// @description Cancel
+
+Convirtiendo script GML: ${project_dir}\objects\RotSis\Step_0.gml
+Descripción convertida /// @description Table def
+
+Convirtiendo script GML: ${project_dir}\objects\RotSis\Draw_0.gml
+Descripción convertida /// @description Draw offset table
+
+Convirtiendo script GML: ${project_dir}\objects\RotSis\KeyPress_112.gml
+Descripción convertida /// @description AI Control
+
+Convirtiendo script GML: ${project_dir}\objects\scrCapture\Create_0.gml
+Descripción convertida /// @description create
+Cadena convertida - línea 3: '' -> ""
+
+Convirtiendo script GML: ${project_dir}\objects\scrCapture\KeyPress_114.gml
+Cadena convertida - línea 6: "\screenshots\" -> "\\screenshots\\"
+
+Convirtiendo script GML: ${project_dir}\objects\Enemy\Create_0.gml
+Descripción convertida /// @description Valores iniciales
+
+Convirtiendo script GML: ${project_dir}\objects\Enemy\Alarm_2.gml
+Descripción convertida /// @description None
+
+Convirtiendo script GML: ${project_dir}\objects\Enemy\Step_0.gml
+Descripción convertida /// @description AI Control
+
+Convirtiendo script GML: ${project_dir}\objects\Enemy\Draw_0.gml
+Descripción convertida /// @description Ghost
+
+Convirtiendo script GML: ${project_dir}\objects\EnPlaced\Draw_0.gml
+Descripción convertida /// @description Flash
+
+Convirtiendo script GML: ${project_dir}\objects\EnControl\Create_0.gml
+Descripción convertida /// @description Inicializacion
+
+Convirtiendo script GML: ${project_dir}\objects\EnControl\Alarm_1.gml
+Descripción convertida /// @description Piece reset
+
+Convirtiendo script GML: ${project_dir}\objects\EnControl\Step_0.gml
+Descripción convertida /// @description Creacion de lineas
+
+Convirtiendo script GML: ${project_dir}\objects\EnControl\Draw_0.gml
+Descripción convertida /// @description Fila, estadisticas
+
+Convirtiendo script GML: ${project_dir}\rooms\Title\RoomCreationCode.gml
+Cadena incluida - línea 41: background_hspeed[1] = 0.5 -> __background_set( e__BG.HSpeed, 1, 0.5 )
+Cadena incluida - línea 40: background_vspeed[1] = 0.5 -> __background_set( e__BG.VSpeed, 1, 0.5 )
+
+Falta el grupo de audio para el sonido: "LineClear" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "SpinClear" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "Droped" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "SpinRotate" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "MoveBlock" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "Tetris" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "Rotate" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "HoldPiece" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "WarningSound" - pasando el grupo de audio a predeterminado
+Falta el grupo de audio para el sonido: "BlockedSound" - pasando el grupo de audio a predeterminado
+Las profundidades de capas importadas para la sala (o salas) "Battle" no se espaciaron adecuadamente. A menos que se actualice esto tendrá resultados indefinidos en el juego.
+Velocidad del juego fijada en 60
+Añadido el script de compatibilidad "background/__background_set.gml"
+Añadido el script de compatibilidad "background/__background_set_internal.gml"
+Añadido el script de compatibilidad "instance/instance_create.gml"
+Añadido el script de compatibilidad "object/object_get_depth.gml"
+Añadido el script de compatibilidad "tile/tile_get_ids.gml"
+Añadido el script de compatibilidad "tile/tile_layer_hide.gml"
+Añadido el script de compatibilidad "tile/tile_layer_show.gml"
+Añadido el script de compatibilidad "tile/tile_set_blend.gml"
+Añadido el script de compatibilidad "view/__view_set.gml"
+Añadido el script de compatibilidad "view/__view_set_internal.gml"
+Añadido el script de compatibilidad "background/__init_background.gml"
+Añadido el script de compatibilidad "view/__init_view.gml"
+Añadido el script de compatibilidad "__init_global.gml"
+Añadido el script de compatibilidad "background/__background_get_element.gml"
+Añadido el script de compatibilidad "background/__background_get_internal.gml"
+Añadido el script de compatibilidad "background/__background_set_element.gml"
+Añadido el script de compatibilidad "view/__view_get.gml"
+Añadido el script de compatibilidad "__global_object_depths.gml"
