@@ -38,7 +38,7 @@ if(Cancel)
 	        {
 	            Wait = false
 	            //ConfigWrite()
-				MapDataSave()
+				JsonDataSave()
 	        }
 	        if(Second and !Wait)  Second = false
         

@@ -4,6 +4,7 @@ globalvar CurJPadButtons, JoyPadButtons, Text, MenuText, Keys, Desc, _CurrentGP;
 room_speed = 60
 
 LoadError	   = false
+LanFile		   = "ENG_Text.ini"
 Buttons        = array_create(8)
 JoyPadButtons  = array_create(8)
 CurrentButtons = array_create(8)
@@ -243,7 +244,7 @@ CurJPadButtons = JoyPadButtons
 	
 //----------------------------------------
 //ConfigInit()
-MapDataInit()
+DataInit()
 
 LanTextLoad()
 room_goto_next()

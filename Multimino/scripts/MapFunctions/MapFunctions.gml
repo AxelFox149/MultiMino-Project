@@ -1,24 +1,12 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function MapDataInit(){
+function DataInit(){
 	
-	if(file_exists("Save.sav")) 
-	{
-		MapDataRead()
-		exit;
-	}
+	if(file_exists("Save.sav")) MapDataRead()
+
+	if(file_exists("SaveData.sav")) JsonDataLoad()
+	else							JsonDataSave()
 	
-	var _map = ds_map_create()
-	
-	ds_map_add(_map,"Options", Options)
-	ds_map_add(_map,"Buttons", CurrentButtons)
-	ds_map_add(_map,"Scores",  Scores)
-	ds_map_add(_map,"Ver",	   GM_version)
-	
-	LanFile = "ENG_Text.ini"
-	
-	ds_map_secure_save(_map, "Save.sav")
-	ds_map_destroy(_map)
 };
 
 function MapDataRead(){
@@ -47,13 +35,13 @@ function MapDataRead(){
 	{
 		LoadError = true
 		file_delete("Save.sav")
-		MapDataInit()
 		exit
 	}
 	
 	var _opt = _map[? "Options"]
 	var _cbt = _map[? "Buttons"]
 	var _scr = _map[? "Scores"]
+//	var _gpd = _map[? "GamePad"]
 	
 	var i;
 	for(i = 0; i < ds_list_size(_opt); i++)
@@ -61,6 +49,8 @@ function MapDataRead(){
 		Options[i] = _opt[| i]
 		
 		if(i < ds_list_size(_cbt)) CurrentButtons[i] = _cbt[| i]
+		
+		//if(i < ds_list_size(_gpd)) CurJPadButtons[i] = _gpd[| i]
 	}
 	
 	//for(i = 0; i < ds_list_size(_scr); i++) Scores[i] = _scr[| i]
@@ -78,9 +68,12 @@ function MapDataRead(){
 	ds_list_destroy(_opt)
 	ds_list_destroy(_cbt)
 	ds_list_destroy(_scr)
+//	ds_list_destroy(_gpd)
 	
 	if(Options[2] == 0) LanFile = "ENG_Text.ini"
 	else				LanFile = "ESP_Text.ini"
+	
+	file_delete("Save.sav")
 };
 
 function MapDataSave(){
@@ -88,13 +81,13 @@ function MapDataSave(){
 	
 	ds_map_replace(_map,"Options", Options)
 	ds_map_replace(_map,"Buttons", CurrentButtons)
+	ds_map_replace(_map,"GamePad", CurJPadButtons)
 	ds_map_replace(_map,"Scores",  Scores)
 	ds_map_replace(_map,"Ver",	   GM_version)
 	
 	ds_map_secure_save(_map,"Save.sav")
 	ds_map_destroy(_map)
 };
-
 
 function LanTextLoad(){
 	ini_open(LanFile)
@@ -257,5 +250,83 @@ function LanTextLoad(){
 		Desc[5][3,2] = ini_read_string("Text", "Desc[3,25]","None")
 		Desc[6][3,2] = ini_read_string("Text", "Desc[3,26]","None")
 	#endregion
+	
 	ini_close()
+}
+	
+function JsonDataSave(){
+	var _Data = {
+		Ver : GM_version,
+		
+		Opt : Options,
+		Cbt : CurrentButtons,
+		Cgp : CurJPadButtons,
+		Scr : Scores,
+		Lan : LanFile
+	};
+	
+	var _jsonString = json_stringify(_Data)
+	SaveString(_jsonString, "SaveData.sav")
+};
+
+function JsonDataLoad(){
+	var _jsonString = LoadString("SaveData.sav")
+	var _comp = false
+	
+	if(_jsonString != -1)
+	{
+		var _Data		= json_parse(_jsonString)
+		var _ver  = _Data.Ver
+
+		if(!is_undefined(_ver))
+		{
+			var i;
+			for(i = 0; i < 20; i++)
+			{
+				if(string(_ver) == Compatible[i])
+				{
+					_comp = true
+					break;
+				}
+			}
+		}
+	}
+
+	if(!_comp)
+	{
+		LoadError = true
+		file_delete("SaveData.sav")
+		JsonDataSave()
+		exit
+	}
+	
+	Options			= _Data.Opt
+	CurrentButtons	= _Data.Cbt
+	CurJPadButtons	= _Data.Cgp
+	Scores			= _Data.Scr
+	LanFile			= _Data.Lan
+
+	if(Options[2] == 0) LanFile = "ENG_Text.ini"
+	else				LanFile = "ESP_Text.ini"
+	
+	audio_master_gain(Options[8]/100)
+};
+
+function SaveString(str, _file){
+	var _buffer = buffer_create(string_byte_length(str) + 1, buffer_fixed, 1)
+	buffer_write(_buffer,buffer_string,str)
+	buffer_save(_buffer, _file)
+	buffer_delete(_buffer)
+}
+
+function LoadString(_file){
+	var _buffer = buffer_load(_file)
+	
+	if(_buffer != -1)
+	{
+		var _str	= buffer_read(_buffer, buffer_string)
+	
+		buffer_delete(_buffer)
+	}
+	return _str
 }
