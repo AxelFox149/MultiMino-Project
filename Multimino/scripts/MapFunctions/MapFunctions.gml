@@ -269,8 +269,11 @@ function JsonDataSave(){
 };
 
 function JsonDataLoad(){
-	var _jsonString = LoadString("SaveData.sav")
+	
+	var _jsonString  = LoadString("SaveData.sav")
 	var _comp = false
+	
+	if(_jsonString == "") _jsonString = -1
 	
 	if(_jsonString != -1)
 	{
@@ -305,8 +308,8 @@ function JsonDataLoad(){
 	if(!_comp)
 	{
 		LoadError = true
-		file_delete("SaveData.sav")
-		JsonDataSave()
+		//file_delete("SaveData.sav")
+		//JsonDataSave()
 		exit
 	}
 	
@@ -322,6 +325,8 @@ function JsonDataLoad(){
 	if(Options[2] == 0) LanFile = "ENG_Text.ini"
 	else				LanFile = "ESP_Text.ini"
 	
+	if(ErrorType > 0) LoadError = true
+	
 	audio_master_gain(Options[8]/100)
 };
 
@@ -334,10 +339,12 @@ function SaveString(str, _file){
 
 function LoadString(_file){
 	var _buffer = buffer_load(_file)
+	var _buffsz = buffer_get_size(_buffer)
+	var _str    = ""
 	
-	if(_buffer != -1)
+	if(_buffer != -1 and _buffsz > 0)
 	{
-		var _str	= buffer_read(_buffer, buffer_string)
+		_str	= buffer_read(_buffer, buffer_string)
 	
 		buffer_delete(_buffer)
 	}

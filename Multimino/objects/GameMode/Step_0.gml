@@ -499,7 +499,7 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
 			
 			var F1 = keyboard_check_pressed(vk_f1)	or (gamepad_button_check_pressed(_CurrentGP,gp_face3) and Alt)
 			var F2 = keyboard_check_pressed(vk_f2)	or (gamepad_button_check_pressed(_CurrentGP,gp_face4) and Alt)
-			var F3 = keyboard_check_pressed(vk_f3)	or (gamepad_button_check_pressed(_CurrentGP,gp_shoulderr) and Alt)
+			var F3 = keyboard_check_pressed(vk_f3)	or (gamepad_button_check_pressed(_CurrentGP,gp_shoulderrb) and Alt)
 			
 			var PlaceBlock = mouse_check_button(mb_left)  or gamepad_button_check(_CurrentGP,gp_face2)
 			var RemovBlock = mouse_check_button(mb_right) or gamepad_button_check(_CurrentGP,gp_face1)
