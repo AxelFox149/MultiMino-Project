@@ -215,7 +215,7 @@ else if((GMode != 10) and !DrawDes)
 			}
 			else if(_secret) Options[1] = 14
 		}
-		else MapDataSave()
+		else JsonDataSave()
 		
 	}
 

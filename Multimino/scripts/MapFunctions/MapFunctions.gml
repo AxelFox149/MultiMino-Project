@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function DataInit(){
 	
-	if(file_exists("Save.sav")) MapDataRead()
+	if(file_exists("Save.sav") and !file_exists("SaveData.sav")) MapDataRead()
 
 	if(file_exists("SaveData.sav")) JsonDataLoad()
 	else							JsonDataSave()

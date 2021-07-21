@@ -187,6 +187,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"e9b72b4b-9081-4269-a9bb-9811ea037abe","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "Otros",
     "path": "folders/Sprites/Otros.yy",

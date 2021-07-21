@@ -167,6 +167,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"73343254-c4fc-4fa1-bc3c-0d41a49e98cd","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "GOMessages",
     "path": "folders/Sprites/GOMessages.yy",

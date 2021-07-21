@@ -79,6 +79,7 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8566b9cd-73aa-4ab1-8aee-d19ba6ad84fc","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
     "name": "MDT Pieces",
     "path": "folders/Sprites/MDT Pieces.yy",
