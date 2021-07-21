@@ -16,13 +16,17 @@ function MapDataRead(){
 	if(_map != -1)
 	{
 		var _ver  = _map[? "Ver"];
+		
 	
 		if(!is_undefined(_ver))
 		{
+			var _strsize = string_length(_ver)
+			var _tempver = string_copy(_ver, 1, _strsize - 2)
+			
 			var i;
 			for(i = 0; i < 20; i++)
 			{
-				if(string(_ver) == Compatible[i])
+				if(string(_tempver) == Compatible[i])
 				{
 					_comp = true
 					break;
@@ -41,7 +45,6 @@ function MapDataRead(){
 	var _opt = _map[? "Options"]
 	var _cbt = _map[? "Buttons"]
 	var _scr = _map[? "Scores"]
-//	var _gpd = _map[? "GamePad"]
 	
 	var i;
 	for(i = 0; i < ds_list_size(_opt); i++)
@@ -49,13 +52,11 @@ function MapDataRead(){
 		Options[i] = _opt[| i]
 		
 		if(i < ds_list_size(_cbt)) CurrentButtons[i] = _cbt[| i]
-		
-		//if(i < ds_list_size(_gpd)) CurJPadButtons[i] = _gpd[| i]
 	}
 	
 	//for(i = 0; i < ds_list_size(_scr); i++) Scores[i] = _scr[| i]
 	
-	if(!(string_digits(_ver) < string_digits("1.1.0.0"))) for(i = 0; i < ds_list_size(_scr); i++) Scores[i] = _scr[| i]
+	if(!(string_digits(_ver) < string_digits("1.1.0"))) for(i = 0; i < ds_list_size(_scr); i++) Scores[i] = _scr[| i]
 	else
 	{
 		for(i = 0; i < 45; i++) Scores[i] = _scr[| i]
