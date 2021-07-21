@@ -262,7 +262,6 @@ function JsonDataSave(){
 		Cbt : CurrentButtons,
 		Cgp : CurJPadButtons,
 		Scr : Scores,
-		Lan : LanFile
 	};
 	
 	var _jsonString = json_stringify(_Data)
@@ -275,22 +274,33 @@ function JsonDataLoad(){
 	
 	if(_jsonString != -1)
 	{
-		var _Data		= json_parse(_jsonString)
-		var _ver  = _Data.Ver
-
-		if(!is_undefined(_ver))
+		var _Data	= json_parse(_jsonString)
+		var _ver;
+		
+		if(variable_struct_exists(_Data, "Ver")) _ver = _Data.Ver
+		else									 _ver = -1
+		
+		if(_ver != -1)
 		{
+			var _strsize = string_length(_ver)
+			var _tempver = string_copy(_ver, 1, _strsize - 2)
+			
+			ErrorType = 3
+			
 			var i;
 			for(i = 0; i < 20; i++)
 			{
-				if(string(_ver) == Compatible[i])
+				if(string(_tempver) == Compatible[i])
 				{
+					ErrorType = -1
 					_comp = true
 					break;
 				}
 			}
 		}
+		else ErrorType = 2
 	}
+	else ErrorType = 1
 
 	if(!_comp)
 	{
@@ -300,12 +310,15 @@ function JsonDataLoad(){
 		exit
 	}
 	
-	Options			= _Data.Opt
-	CurrentButtons	= _Data.Cbt
-	CurJPadButtons	= _Data.Cgp
-	Scores			= _Data.Scr
-	LanFile			= _Data.Lan
-
+	if(variable_struct_exists(_Data, "Opt")) Options		= _Data.Opt
+	else {ErrorType = 4; VarError[0] = true}
+	if(variable_struct_exists(_Data, "Cbt")) CurrentButtons	= _Data.Cbt
+	else {ErrorType = 4; VarError[1] = true}
+	if(variable_struct_exists(_Data, "Cgp")) CurJPadButtons	= _Data.Cgp
+	else {ErrorType = 4; VarError[2] = true}
+	if(variable_struct_exists(_Data, "Scr")) Scores			= _Data.Scr
+	else {ErrorType = 4; VarError[3] = true}
+	
 	if(Options[2] == 0) LanFile = "ENG_Text.ini"
 	else				LanFile = "ESP_Text.ini"
 	

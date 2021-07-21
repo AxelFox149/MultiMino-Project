@@ -1,10 +1,12 @@
 globalvar Options, Buttons, CurrentButtons, Scores, LanFile, LoadError, Compatible, PieceIndex;
-globalvar CurJPadButtons, JoyPadButtons, Text, MenuText, Keys, Desc, _CurrentGP;
+globalvar CurJPadButtons, JoyPadButtons, Text, MenuText, Keys, Desc, _CurrentGP, ErrorType, VarError;
 
 room_speed = 60
 
+ErrorType	   = -1
 LoadError	   = false
 LanFile		   = "ENG_Text.ini"
+VarError	   = array_create(4, false)
 Buttons        = array_create(8)
 JoyPadButtons  = array_create(8)
 CurrentButtons = array_create(8)
@@ -18,26 +20,26 @@ randomize()
 
 //----------------------------------------
 //Versiones
-Compatible[0] =  "1.0.0.0"
-Compatible[1] =  "1.0.1.0"
-Compatible[2] =  "1.0.2.0"
-Compatible[3] =  "1.0.3.0"
-Compatible[4] =  "1.0.4.0"
-Compatible[5] =  "1.0.5.0"
-Compatible[6] =  "1.0.6.0"
-Compatible[7] =  "1.0.7.0"
-Compatible[8] =  "1.0.8.0"
-Compatible[9] =  "1.0.9.0"
-Compatible[10] = "1.1.0.0"
-Compatible[11] = "1.1.1.0"
-Compatible[12] = "1.1.2.0"
-Compatible[13] = "1.1.3.0"
-Compatible[14] = "1.1.4.0"
-Compatible[15] = "1.1.5.0"
-Compatible[16] = "1.1.6.0"
-Compatible[17] = "1.1.7.0"
-Compatible[18] = "1.1.8.0"
-Compatible[19] = "1.1.9.0"
+Compatible[0] =  "1.0.0"
+Compatible[1] =  "1.0.1"
+Compatible[2] =  "1.0.2"
+Compatible[3] =  "1.0.3"
+Compatible[4] =  "1.0.4"
+Compatible[5] =  "1.0.5"
+Compatible[6] =  "1.0.6"
+Compatible[7] =  "1.0.7"
+Compatible[8] =  "1.0.8"
+Compatible[9] =  "1.0.9"
+Compatible[10] = "1.1.0"
+Compatible[11] = "1.1.1"
+Compatible[12] = "1.1.2"
+Compatible[13] = "1.1.3"
+Compatible[14] = "1.1.4"
+Compatible[15] = "1.1.5"
+Compatible[16] = "1.1.6"
+Compatible[17] = "1.1.7"
+Compatible[18] = "1.1.8"
+Compatible[19] = "1.1.9"
 
 //Options
 
@@ -80,17 +82,7 @@ JoyPadButtons[8] = gp_shoulderl
 
 //----------------------------------------
 //Current Controls
-/*
-CurrentButtons[0] = 38  //Rotate Right
-CurrentButtons[1] = 40  //Soft Drop
-CurrentButtons[2] = 37  //Left
-CurrentButtons[3] = 39  //Right
-CurrentButtons[4] = 67  //Hold
-CurrentButtons[5] = 32  //Hard Drop
-CurrentButtons[6] = 88  //Rotate Left
-CurrentButtons[7] = 90  //Double Rotation
-CurrentButtons[8] = 82  //Reset
-*/
+
 CurrentButtons = Buttons
 CurJPadButtons = JoyPadButtons
 
