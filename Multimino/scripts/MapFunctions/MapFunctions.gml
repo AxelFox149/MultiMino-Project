@@ -258,7 +258,7 @@ function LanTextLoad(){
 function JsonDataSave(){
 	
 	var _ScoreData  = DataEncoder(Scores)
-	var _OptCntData = DataEncoder(Options) + DataEncoder(CurrentButtons) + DataEncoder(CurJPadButtons)
+	var _OptCntData = DataEncoder(Options) + 2 * DataEncoder(CurrentButtons) + 3 * DataEncoder(CurJPadButtons)
 	
 	var _ScoreHash  = sha1_string_utf8(string(_ScoreData))
 	var _OptCntHash = sha1_string_utf8(string(_OptCntData))
@@ -318,19 +318,32 @@ function JsonDataLoad(){
 	if(!_comp)
 	{
 		LoadError = true
-		//file_delete("SaveData.sav")
-		//JsonDataSave()
 		exit
 	}
 	
 	if(variable_struct_exists(_Data, "Opt")) Options		= _Data.Opt
-	else {ErrorType = 4; VarError[0] = true}
+	else ErrorType = 4
 	if(variable_struct_exists(_Data, "Cbt")) CurrentButtons	= _Data.Cbt
-	else {ErrorType = 4; VarError[1] = true}
+	else ErrorType = 4
 	if(variable_struct_exists(_Data, "Cgp")) CurJPadButtons	= _Data.Cgp
-	else {ErrorType = 4; VarError[2] = true}
+	else ErrorType = 4
 	if(variable_struct_exists(_Data, "Scr")) Scores			= _Data.Scr
-	else {ErrorType = 4; VarError[3] = true}
+	else ErrorType = 4
+	
+	var _ScoreCheck = ""
+	var _OptCheck   = ""
+	
+	if(variable_struct_exists(_Data, "SKey")) _ScoreCheck	= _Data.SKey
+	if(variable_struct_exists(_Data, "OKey")) _OptCheck		= _Data.OKey
+	
+	var _ScoreData  = DataEncoder(Scores)
+	var _OptCntData = DataEncoder(Options) + 2 * DataEncoder(CurrentButtons) + 3 * DataEncoder(CurJPadButtons)
+	
+	var _ScoreHash  = sha1_string_utf8(string(_ScoreData))
+	var _OptCntHash = sha1_string_utf8(string(_OptCntData))
+	
+	if(_OptCheck   != _OptCntHash) ErrorType = 6
+	if(_ScoreCheck != _ScoreHash)  ErrorType = 5
 	
 	if(Options[2] == 0) LanFile = "ENG_Text.ini"
 	else				LanFile = "ESP_Text.ini"
@@ -364,7 +377,8 @@ function LoadString(_file){
 function DataEncoder(_Array){
 	
 	var i, _size = array_length(_Array);
-	var _S
+	var _S = 0;
+	var _temp = 0
 	var _Primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,
           101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,
           193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,
@@ -375,11 +389,15 @@ function DataEncoder(_Array){
 	
 	for(i = 0; i < _size; i++)
 	{
-		if(!is_string(_Array[i])) _S += _Array[i] * (i + 1)
+		if(!is_string(_Array[i])) _S += _Array[i] * _Primes[i]
 		else
 		{
-			if(_Array[i] != "") _S += string_digits(_Array[i]) * _Primes[i]
-			else				_S += (i + 1)
+			if(_Array[i] != "")
+			{
+				_temp = string_digits(_Array[i])
+				_S   += real(_temp) * _Primes[i]
+			}
+			else _S += (i + 1) * _Primes[i]
 		}
 	}
 	

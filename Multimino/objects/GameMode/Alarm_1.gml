@@ -56,9 +56,9 @@ else if((GMode != 10) and !DrawDes)
 				if(QueueMode != 6) _index = 1 + (15 * QueueMode)
 				else			   _index = 91
 				
-		        _val   = string_digits(Scores[_index])
+		        _val   = real(string_digits(Scores[_index]))
             
-				if((_val > string_digits(Control.TM[3])) and GameWin)
+				if((_val > real(string_digits(Control.TM[3]))) and GameWin)
 		        {
 		            NR = true
 					Scores[_index] = Control.TM[3]
@@ -84,9 +84,9 @@ else if((GMode != 10) and !DrawDes)
 	        case 6:
 	            //Survival
 				_index = 3 + (15 * QueueMode)
-	            _val   = string_digits(Scores[_index])
+	            _val   = real(string_digits(Scores[_index]))
             
-	            if(_val < string_digits(Control.TM[3]))
+	            if(_val < real(string_digits(Control.TM[3])))
 	            {
 	                NR = true
 				
@@ -145,9 +145,9 @@ else if((GMode != 10) and !DrawDes)
 				else
 				{
 					_index = 93
-		            _val   = string_digits(Scores[_index])
+		            _val   = real(string_digits(Scores[_index]))
             
-		            if(_val < string_digits(Control.TM[3]))
+		            if(_val < real(string_digits(Control.TM[3])))
 		            {
 		                NR = true
 				
