@@ -256,13 +256,22 @@ function LanTextLoad(){
 }
 	
 function JsonDataSave(){
+	
+	var _ScoreData  = DataEncoder(Scores)
+	var _OptCntData = DataEncoder(Options) + DataEncoder(CurrentButtons) + DataEncoder(CurJPadButtons)
+	
+	var _ScoreHash  = sha1_string_utf8(string(_ScoreData))
+	var _OptCntHash = sha1_string_utf8(string(_OptCntData))
+	
 	var _Data = {
 		Ver : GM_version,
 		
-		Opt : Options,
-		Cbt : CurrentButtons,
-		Cgp : CurJPadButtons,
-		Scr : Scores,
+		Opt  : Options,
+		Cbt  : CurrentButtons,
+		Cgp  : CurJPadButtons,
+		Scr  : Scores,
+		SKey : _ScoreHash,
+		OKey : _OptCntHash,
 	};
 	
 	var _jsonString = json_stringify(_Data)
@@ -350,4 +359,29 @@ function LoadString(_file){
 		buffer_delete(_buffer)
 	}
 	return _str
+}
+	
+function DataEncoder(_Array){
+	
+	var i, _size = array_length(_Array);
+	var _S
+	var _Primes = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,
+          101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,
+          193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,
+          293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,397,401,
+          409,419,421,431,433,439,443,457,461,463,467,479,487,491,499,503,509,521,
+          523,541,547,557,563,569,571,577,587,593,599,601,607,613,617,619,631,641,
+          643,647,653,659]
+	
+	for(i = 0; i < _size; i++)
+	{
+		if(!is_string(_Array[i])) _S += _Array[i] * (i + 1)
+		else
+		{
+			if(_Array[i] != "") _S += string_digits(_Array[i]) * _Primes[i]
+			else				_S += (i + 1)
+		}
+	}
+	
+	return _S
 }
