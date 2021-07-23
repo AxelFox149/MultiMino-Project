@@ -483,6 +483,20 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
 			{
 				CurPosX += gamepad_axis_value(_CurrentGP,gp_axislh) * 10
 				CurPosY += gamepad_axis_value(_CurrentGP,gp_axislv) * 10
+				
+				var axVal = gamepad_axis_value(_CurrentGP,gp_axisrv)
+				
+				if(abs(axVal) > 0.5)
+				{
+					if(!MovedFlag)
+					{
+						MovePoiter += 1 * sign(axVal)
+					
+						MovePoiter = (MovePoiter + 3) mod 3
+						MovedFlag  = true
+					}
+				}
+				else MovedFlag = false
 			}
 			
 			CurX = clamp(floor(CurPosX / 64) * 64,  576, 1152);
@@ -491,22 +505,29 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
 			CurPosX = clamp(CurPosX,  576, 1216);
 			CurPosY = clamp(CurPosY,  256, 1408);
 			
-            var Izq = keyboard_check_pressed(vk_left)   or gamepad_button_check_pressed(_CurrentGP,gp_padl)
-            var Der = keyboard_check_pressed(vk_right)  or gamepad_button_check_pressed(_CurrentGP,gp_padr)
-            var Arr = keyboard_check_pressed(vk_up)     or gamepad_button_check_pressed(_CurrentGP,gp_padu)
-            var Aba = keyboard_check_pressed(vk_down)   or gamepad_button_check_pressed(_CurrentGP,gp_padd)
-			var Alt = keyboard_check(vk_alt)			or gamepad_button_check(_CurrentGP,gp_shoulderlb)
+            var Izq  = keyboard_check_pressed(vk_left)   or gamepad_button_check_pressed(_CurrentGP,gp_padl)
+            var Der  = keyboard_check_pressed(vk_right)  or gamepad_button_check_pressed(_CurrentGP,gp_padr)
+            var Arr  = keyboard_check_pressed(vk_up)     or gamepad_button_check_pressed(_CurrentGP,gp_padu)
+            var Aba  = keyboard_check_pressed(vk_down)   or gamepad_button_check_pressed(_CurrentGP,gp_padd)
+			var Alt  = keyboard_check(vk_alt)			 or gamepad_button_check(_CurrentGP,gp_shoulderrb)
+			var Ctrl = keyboard_check(vk_control)		 or gamepad_button_check(_CurrentGP,gp_shoulderlb)
+			var Next = keyboard_check_pressed(ord("D"))  or gamepad_button_check_pressed(_CurrentGP,gp_shoulderr)
+			var Prev = keyboard_check_pressed(ord("A"))  or gamepad_button_check_pressed(_CurrentGP,gp_shoulderl)
+			var Save = keyboard_check_pressed(ord("S"))  or gamepad_button_check_pressed(_CurrentGP,gp_face3)
 			
-			var F1 = keyboard_check_pressed(vk_f1)	or (gamepad_button_check_pressed(_CurrentGP,gp_face3) and Alt)
-			var F2 = keyboard_check_pressed(vk_f2)	or (gamepad_button_check_pressed(_CurrentGP,gp_face4) and Alt)
-			var F3 = keyboard_check_pressed(vk_f3)	or (gamepad_button_check_pressed(_CurrentGP,gp_shoulderrb) and Alt)
+			var SelFlag = gamepad_button_check_pressed(_CurrentGP,gp_face4)
+			
+			var Select  = keyboard_check_pressed(vk_enter) or (Ctrl and gamepad_button_check_pressed(_CurrentGP,gp_select))
+			
+			var F1 = keyboard_check_pressed(vk_f1)
+			var F2 = keyboard_check_pressed(vk_f2)
+			var F3 = keyboard_check_pressed(vk_f3)
 			
 			var PlaceBlock = mouse_check_button(mb_left)  or gamepad_button_check(_CurrentGP,gp_face2)
 			var RemovBlock = mouse_check_button(mb_right) or gamepad_button_check(_CurrentGP,gp_face1)
             
             //if(CurX > 1152) CurX = 1152
             //if(CurY <  256) CurY =  256
-			
 			
             //switch(mouse_button)
             //{
@@ -534,13 +555,13 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
 				}
             //}
             
-			if(F1) OSpin = !OSpin
-			if(F2) G20	 = !G20
-			if(F3) LockD = !LockD
+			if(F1 or (MovePoiter == 0 and SelFlag)) OSpin = !OSpin
+			if(F2 or (MovePoiter == 1 and SelFlag)) G20	  = !G20
+			if(F3 or (MovePoiter == 2 and SelFlag)) LockD = !LockD
 			
-            if(keyboard_check(vk_control))
+            if(Ctrl)
             {
-                if(keyboard_check_pressed(ord("S")) and instance_exists(Placed))
+                if(Save and instance_exists(Placed))
                 {
                     SaveSlot()
                     SaveFlag = true
@@ -601,11 +622,11 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
                 if(Aba) Pointer = min(8, Pointer + 1)
             }
             
-            if(keyboard_check_pressed(ord("D")) or keyboard_check_pressed(ord("A")))
+            if(Next or Prev)
             {
                 
-                if(keyboard_key == ord("D")) SpinBoard = min(SpinBoard + 1, 15)
-                if(keyboard_key == ord("A")) SpinBoard = max(SpinBoard - 1, 0)
+                if(Next) SpinBoard = min(SpinBoard + 1, 15)
+                if(Prev) SpinBoard = max(SpinBoard - 1, 0)
                 
                 var i;
                 
@@ -615,7 +636,7 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
                 LoadSlot()
             }
             
-            if(keyboard_check_pressed(vk_enter))
+            if(Select)
             {
                 instance_activate_object(Polyminoe)
                 var NPIECE;
@@ -677,7 +698,10 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
         }
         else
         {
-            if(keyboard_check_pressed(vk_backspace) or BOGM)
+			var Ctrl   = keyboard_check(vk_control)		  or gamepad_button_check(_CurrentGP,gp_shoulderrb)
+			var Select = keyboard_check_pressed(vk_backspace) or (Ctrl and gamepad_button_check_pressed(_CurrentGP,gp_select))
+			
+            if(Select or BOGM)
             {
                 if(!instance_exists(Polyminoe)) instance_activate_object(Polyminoe)
                 

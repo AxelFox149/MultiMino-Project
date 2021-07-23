@@ -31,7 +31,6 @@ if(GMode == 10 and !gameover and depth == -5)
 
 if(GMode == 11 and instance_exists(Control))
 {
-	ini_open(LanFile)
 	var str;
     draw_set_halign(fa_center)
 	draw_set_color(c_white)
@@ -43,10 +42,10 @@ if(GMode == 11 and instance_exists(Control))
 		
 		if(_CurrentGP != -1) draw_sprite_ext(spr_hand,0,CurPosX,CurPosY,8,8,0,c_white,1)
 		
-		str = ini_read_string("Text", "Game[7]", "a")
+		str = EditorText[0]
         draw_text(232,320, str)
 		
-		str = ini_read_string("Text", "Game[8]", "a")
+		str = EditorText[1]
         draw_text_transformed(232,464, string_hash_to_newline(str),0.85,0.85,0)
         draw_sprite_ext(SArrow,0,1728,179 + (156 * Pointer),-8,8,0,c_white,1)
         var i, GOffSet = 0;
@@ -61,15 +60,27 @@ if(GMode == 11 and instance_exists(Control))
 			DrawPiece(PieceArr[i], 1536, 185 + (i * 156) + GOffSet, 0, 1.5, 1.5, 1, 0, false)
 		}
 		draw_set_halign(fa_left)
-		str = ini_read_string("Text", "Game[9]", "a")
+		str = EditorText[2]
         draw_text_transformed(32,750,string_hash_to_newline(str),0.75,0.75,0)
         
         /*if(SpinBoard != -1)*/
         var xyScal = 0.9
 		
-		draw_text_transformed(848, 56,  "(F1) O-Spin:",xyScal,xyScal,0)
-		draw_text_transformed(848, 112, "(F2) 20G:",xyScal,xyScal,0)
-		draw_text_transformed(848, 168, "(F3) LockD:",xyScal,xyScal,0)
+		if(_CurrentGP != -1)
+		{
+			draw_text_transformed(848, 56 + 56 * MovePoiter,  ">",xyScal,xyScal,0)
+			
+			draw_text_transformed(960, 56,  "O-Spin:",xyScal,xyScal,0)
+			draw_text_transformed(960, 112, "20G:"   ,xyScal,xyScal,0)
+			draw_text_transformed(960, 168, "LockD:" ,xyScal,xyScal,0)
+		}
+		else
+		{
+			draw_text_transformed(848, 56,  "(F1) O-Spin:",xyScal,xyScal,0)
+			draw_text_transformed(848, 112, "(F2) 20G:"   ,xyScal,xyScal,0)
+			draw_text_transformed(848, 168, "(F3) LockD:" ,xyScal,xyScal,0)
+		}
+		
 		
         if(OSpin) draw_text_transformed_color(1088, 56, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
         else      draw_text_transformed_color(1088, 56, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
@@ -80,21 +91,20 @@ if(GMode == 11 and instance_exists(Control))
 		if(LockD) draw_text_transformed_color(1088, 168, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
         else      draw_text_transformed_color(1088, 168, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
 		
-                  draw_text_transformed(640, 64, string_hash_to_newline("Slot " + string(SpinBoard)),xyScal,xyScal,0)
+                  draw_text_transformed(640, 64, "Slot " + string(SpinBoard),xyScal,xyScal,0)
         
-        if(SaveFlag) draw_text_transformed(640, 128, ini_read_string("Text", "Game[10]", "a"),xyScal,xyScal,0)
+        if(SaveFlag) draw_text_transformed(640, 128, EditorText[3],xyScal,xyScal,0)
         
-        draw_text_transformed(64,64,ini_read_string("Text", "Game[11]", "a"),xyScal - 0.05,xyScal - 0.05,0)
+        draw_text_transformed(64,64,EditorText[4],xyScal - 0.05,xyScal - 0.05,0)
         draw_set_halign(fa_center)
     }
     else
     {
-        draw_text(232,320, ini_read_string("Text", "Game[12]", "a"))
-		str = ini_read_string("Text", "Game[13]", "a")
+        draw_text(232,320, EditorText[5])
+		str = EditorText[6]
         draw_text_transformed(232,464, string_hash_to_newline(str),0.85,0.85,0)
     }
     draw_set_halign(fa_left)
-	ini_close()
 }
 
 /* */

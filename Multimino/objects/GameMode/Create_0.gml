@@ -23,6 +23,18 @@ Game Mode Index Value
 	14 = Null
 	15 = Spin Clear Editor
 */
+ini_open(LanFile)
+
+EditorText[0] = ini_read_string("Text", "Game[7]", "a")
+EditorText[1] = ini_read_string("Text", "Game[8]", "a")
+EditorText[2] = ini_read_string("Text", "Game[9]", "a")
+EditorText[3] = ini_read_string("Text", "Game[10]", "a")
+EditorText[4] = ini_read_string("Text", "Game[11]", "a")
+EditorText[5] = ini_read_string("Text", "Game[12]", "a")
+EditorText[6] = ini_read_string("Text", "Game[13]", "a")
+
+ini_close()
+
 OSpin  = false
 IsEdit = false
 
@@ -56,8 +68,10 @@ if(GMode == 11)
     CurX      = room_height/2
     CurY      = room_width/2
 	
-	CurPosX   = CurX
-	CurPosY   = CurY
+	CurPosX    = CurX
+	CurPosY    = CurY
+	MovedFlag  = false
+	MovePoiter = 0
 	
     Pointer   = 0
     IsEdit    = true
