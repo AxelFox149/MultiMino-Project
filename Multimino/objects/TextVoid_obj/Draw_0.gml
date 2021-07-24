@@ -63,6 +63,8 @@ if(!Scores[111])
 					
 					if(ErrorType < 4) Text3 = ini_read_string("Text", "Alert[5]", "Error")
 					else if(ErrorType < 7) Text3 = ini_read_string("Text", "Alert[6]", "Error")
+					
+					string_replace(Text2, "$", SavPath)
 				}
 				
 				ini_close()
