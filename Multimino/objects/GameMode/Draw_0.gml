@@ -31,24 +31,30 @@ if(GMode == 10 and !gameover and depth == -5)
 
 if(GMode == 11 and instance_exists(Control))
 {
-	var str;
-    draw_set_halign(fa_center)
+	var str, i, j = 1, InsOff = 0, GOffSet = 0;
+	
+	_CurrentGP = getController()
+	
+	draw_set_halign(fa_center)
 	draw_set_color(c_white)
-    if(IsEdit)
+    
+	if(IsEdit)
     {
-		_CurrentGP = getController()
-		
         draw_sprite_ext(Point, Options[1], CurX, CurY, 2, 2, 0, ColorPal[91], .5)
 		
-		if(_CurrentGP != -1) draw_sprite_ext(spr_hand,0,CurPosX,CurPosY,8,8,0,c_white,1)
+		if(_CurrentGP != -1)
+		{
+			draw_sprite_ext(spr_hand,0,CurPosX,CurPosY,8,8,0,c_white,1)
+			InsOff = 1
+		}
 		
-		str = EditorText[0]
+		str = EditorText[0,0]
         draw_text(232,320, str)
 		
-		str = EditorText[1]
+		str = EditorText[1,InsOff]
         draw_text_transformed(232,464, string_hash_to_newline(str),0.85,0.85,0)
         draw_sprite_ext(SArrow,0,1728,179 + (156 * Pointer),-8,8,0,c_white,1)
-        var i, GOffSet = 0;
+        
         for(i = 0; i < 9; i++)
 		{
 			if		(PieceArr[i] >= 30 and PieceArr[i]  < 40)  GOffSet = -24
@@ -60,19 +66,33 @@ if(GMode == 11 and instance_exists(Control))
 			DrawPiece(PieceArr[i], 1536, 185 + (i * 156) + GOffSet, 0, 1.5, 1.5, 1, 0, false)
 		}
 		draw_set_halign(fa_left)
-		str = EditorText[2]
-        draw_text_transformed(32,750,string_hash_to_newline(str),0.75,0.75,0)
+		
+		str = EditorText[2,0]
+        draw_text_transformed(32,782,str,0.75,0.75,0)
+		
+		for(i = 0; i < 13; i++)
+		{
+			if(i == 2 or i == 5 or i == 7 or i == 10) continue
+			
+			str = EditorText[2, j + (9 * InsOff)]
+			draw_text_transformed(32,862 + (40 * i),str,0.75,0.75,0)
+			
+			j++
+		}
         
         /*if(SpinBoard != -1)*/
         var xyScal = 0.9
 		
 		if(_CurrentGP != -1)
 		{
-			draw_text_transformed(848, 56 + 56 * MovePoiter,  ">",xyScal,xyScal,0)
+			draw_text_transformed(880, 56 + 56 * MovePoiter,  "(Y)",xyScal,xyScal,0)
+			draw_text_transformed(832, 56 ," ^",xyScal,xyScal,0)
+			draw_text_transformed(832, 112,"RS",xyScal,xyScal,0)
+			draw_text_transformed(832, 168," v",xyScal,xyScal,0)
 			
-			draw_text_transformed(960, 56,  "O-Spin:",xyScal,xyScal,0)
-			draw_text_transformed(960, 112, "20G:"   ,xyScal,xyScal,0)
-			draw_text_transformed(960, 168, "LockD:" ,xyScal,xyScal,0)
+			draw_text_transformed(944, 56,  "O-Spin:",xyScal,xyScal,0)
+			draw_text_transformed(944, 112, "20G:"   ,xyScal,xyScal,0)
+			draw_text_transformed(944, 168, "LockD:" ,xyScal,xyScal,0)
 		}
 		else
 		{
@@ -93,15 +113,17 @@ if(GMode == 11 and instance_exists(Control))
 		
                   draw_text_transformed(640, 64, "Slot " + string(SpinBoard),xyScal,xyScal,0)
         
-        if(SaveFlag) draw_text_transformed(640, 128, EditorText[3],xyScal,xyScal,0)
+        if(SaveFlag) draw_text_transformed(640, 128, EditorText[3,0],xyScal,xyScal,0)
         
-        draw_text_transformed(64,64,EditorText[4],xyScal - 0.05,xyScal - 0.05,0)
+        draw_text_transformed(64,64,EditorText[4,InsOff],xyScal - 0.05,xyScal - 0.05,0)
         draw_set_halign(fa_center)
     }
     else
     {
-        draw_text(232,320, EditorText[5])
-		str = EditorText[6]
+		if(_CurrentGP != -1) InsOff = 1
+		
+        draw_text(232,320, EditorText[5,0])
+		str = EditorText[6,InsOff]
         draw_text_transformed(232,464, string_hash_to_newline(str),0.85,0.85,0)
     }
     draw_set_halign(fa_left)

@@ -21,7 +21,10 @@ function MapDataRead(){
 		if(!is_undefined(_ver))
 		{
 			var _strsize = string_length(_ver)
-			var _tempver = string_copy(_ver, 1, _strsize - 2)
+			var _tempver;
+			
+			if(_strsize > 5) _tempver = string_copy(_ver, 1, _strsize - 2)
+			else			 _tempver = _ver
 			
 			var i;
 			for(i = 0; i < 20; i++)
@@ -296,7 +299,10 @@ function JsonDataLoad(){
 		if(_ver != -1)
 		{
 			var _strsize = string_length(_ver)
-			var _tempver = string_copy(_ver, 1, _strsize - 2)
+			var _tempver;
+			
+			if(_strsize > 5) _tempver = string_copy(_ver, 1, _strsize - 2)
+			else			 _tempver = _ver
 			
 			ErrorType = 3
 			

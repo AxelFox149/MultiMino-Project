@@ -25,13 +25,38 @@ Game Mode Index Value
 */
 ini_open(LanFile)
 
-EditorText[0] = ini_read_string("Text", "Game[7]", "a")
-EditorText[1] = ini_read_string("Text", "Game[8]", "a")
-EditorText[2] = ini_read_string("Text", "Game[9]", "a")
-EditorText[3] = ini_read_string("Text", "Game[10]", "a")
-EditorText[4] = ini_read_string("Text", "Game[11]", "a")
-EditorText[5] = ini_read_string("Text", "Game[12]", "a")
-EditorText[6] = ini_read_string("Text", "Game[13]", "a")
+EditorText[0,0] = ini_read_string("Text", "Game[7]", "a")
+EditorText[1,0] = ini_read_string("Text", "Game[8,0]", "a")
+EditorText[1,1] = ini_read_string("Text", "Game[8,1]", "a")
+
+EditorText[2,0] = ini_read_string("Text", "Game[9,0]", "a")
+
+EditorText[2,1] = ini_read_string("Text", "Game[9,1]", "a")
+EditorText[2,2] = ini_read_string("Text", "Game[9,2]", "a")
+EditorText[2,3] = ini_read_string("Text", "Game[9,3]", "a")
+EditorText[2,4] = ini_read_string("Text", "Game[9,4]", "a")
+EditorText[2,5] = ini_read_string("Text", "Game[9,5]", "a")
+EditorText[2,6] = ini_read_string("Text", "Game[9,6]", "a")
+EditorText[2,7] = ini_read_string("Text", "Game[9,7]", "a")
+EditorText[2,8] = ini_read_string("Text", "Game[9,8]", "a")
+EditorText[2,9] = ini_read_string("Text", "Game[9,9]", "a")
+
+EditorText[2,10] = ini_read_string("Text", "Game[9,10]", "a")
+EditorText[2,11] = ini_read_string("Text", "Game[9,11]", "a")
+EditorText[2,12] = ini_read_string("Text", "Game[9,12]", "a")
+EditorText[2,13] = ini_read_string("Text", "Game[9,13]", "a")
+EditorText[2,14] = ini_read_string("Text", "Game[9,14]", "a")
+EditorText[2,15] = ini_read_string("Text", "Game[9,15]", "a")
+EditorText[2,16] = ini_read_string("Text", "Game[9,16]", "a")
+EditorText[2,17] = ini_read_string("Text", "Game[9,17]", "a")
+EditorText[2,18] = ini_read_string("Text", "Game[9,18]", "a")
+
+EditorText[3,0] = ini_read_string("Text", "Game[10]", "a")
+EditorText[4,0] = ini_read_string("Text", "Game[11,0]", "a")
+EditorText[4,1] = ini_read_string("Text", "Game[11,1]", "a")
+EditorText[5,0] = ini_read_string("Text", "Game[12]", "a")
+EditorText[6,0] = ini_read_string("Text", "Game[13,0]", "a")
+EditorText[6,1] = ini_read_string("Text", "Game[13,1]", "a")
 
 ini_close()
 

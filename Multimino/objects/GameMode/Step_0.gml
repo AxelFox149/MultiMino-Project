@@ -574,23 +574,43 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
                     {
                         if(Arr) with(Placed)
                         {
-                            y -= 64
-                            if(y < 256) y+= 1152
+                            y    -= 64
+							Posy --
+                            if(y < 256)
+							{
+								y    += 1152
+								Posy += 18
+							}
                         }
                         if(Aba) with(Placed)
                         {
-                            y += 64
-                            if(y > 1344) y-= 1152
+                            y	 += 64
+							Posy ++
+                            if(y > 1344)
+							{
+								y	 -= 1152
+								Posy -= 18
+							}
                         }
                         if(Der) with(Placed)
                         {
-                            x += 64
-                            if(x > 1152) x-= 640
+                            x    += 64
+							Posx ++
+                            if(x > 1152)
+							{
+								x	 -= 640
+								Posx -= 10
+							}
                         }
                         if(Izq) with(Placed)
                         {
-                            x -= 64
-                            if(x < 576) x += 640
+                            x	 -= 64
+							Posx --
+                            if(x < 576)
+							{
+								x	 += 640
+								Posx += 10
+							}
                         }
                         
                         for(i = 0; i <= 17; i++)
@@ -698,7 +718,7 @@ if(GMode == 11 and instance_exists(Control) and !pause and !gameover)
         }
         else
         {
-			var Ctrl   = keyboard_check(vk_control)		  or gamepad_button_check(_CurrentGP,gp_shoulderrb)
+			var Ctrl   = keyboard_check(vk_control)		  or gamepad_button_check(_CurrentGP,gp_shoulderlb)
 			var Select = keyboard_check_pressed(vk_backspace) or (Ctrl and gamepad_button_check_pressed(_CurrentGP,gp_select))
 			
             if(Select or BOGM)
