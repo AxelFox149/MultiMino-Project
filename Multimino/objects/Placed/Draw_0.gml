@@ -23,12 +23,18 @@ if(image_alpha != 0 and Options[11])
 		
 			if(BRD[Posy][min(Posx + 1, SZD)] == 0) draw_rectangle(x + 64,y,x + 72,y + 64,false)
 			if(BRD[Posy][max(Posx - 1, 0)]   == 0) draw_rectangle(x - 8, y,x,y + 64,false)
-		
-			if(BRD[max(Posy - 1, 0)][max(Posx - 1, 0)] == 0) draw_rectangle(x - 8,y - 8,x,y,false)
-			if(BRD[min(Posy + 1,39)][max(Posx - 1, 0)] == 0) draw_rectangle(x - 8,y + 72,x,y + 64,false)
-		
-			if(BRD[max(Posy - 1, 0)][min(Posx + 1, SZD)] == 0) draw_rectangle(x + 64,y - 8,x + 72,y,false)
-			if(BRD[min(Posy + 1,39)][min(Posx + 1, SZD)] == 0) draw_rectangle(x + 64,y + 64,x + 72,y + 72,false)
+			
+				if(Posx - 1 >= 0)
+				{
+					if(BRD[max(Posy - 1, 0)][max(Posx - 1, 0)] == 0) draw_rectangle(x - 8,y - 8,x,y,false)
+					if(Posy + 1 <= 39 and BRD[min(Posy + 1,39)][max(Posx - 1, 0)] == 0) draw_rectangle(x - 8,y + 72,x,y + 64,false)
+				}
+				
+				if(Posx + 1 <= SZD)
+				{
+					if(BRD[max(Posy - 1, 0)][min(Posx + 1, SZD)] == 0) draw_rectangle(x + 64,y - 8,x + 72,y,false)
+					if(Posy + 1 <= 39 and BRD[min(Posy + 1,39)][min(Posx + 1, SZD)] == 0) draw_rectangle(x + 64,y + 64,x + 72,y + 72,false)
+				}
 		}
 }
 

@@ -6,7 +6,7 @@ room_speed = 60
 ErrorType	   = -1
 LoadError	   = false
 LanFile		   = "ENG_Text.ini"
-VarError	   = array_create(4, false)
+//VarError	   = array_create(4, false)
 Buttons        = array_create(8)
 JoyPadButtons  = array_create(8)
 CurrentButtons = array_create(8)
@@ -238,7 +238,7 @@ CurJPadButtons = JoyPadButtons
 //ConfigInit()
 DataInit()
 
-LanTextLoad()
+//LanTextLoad()
 room_goto_next()
 
 

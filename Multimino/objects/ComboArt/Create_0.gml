@@ -4,6 +4,12 @@ _Camera = camera_create_view(0, 0, room_width, room_height, 0, noone,-1, -1, 0, 
 
 view_camera[0] = _Camera
 
+LanText = array_create(2)
+
+ini_open(LanFile)
+LanText[0] = ini_read_string("Text","Game[14,0]","a")
+LanText[1] = ini_read_string("Text","Game[14,1]","a")
+ini_close()
 
 ComboDraw  = false
 ComboEnemy = false

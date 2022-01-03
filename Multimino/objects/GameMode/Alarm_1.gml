@@ -1,5 +1,6 @@
 /// @description Activate
 
+
 if(GMode == 11)
 {
     BOGM = true

@@ -4,8 +4,7 @@ if(!(gameover or pause) and instance_exists(Control))
 {
 	if(Top)
 	{
-	    if(Insert1 or Insert2) GOType = 3
-	    else GOType = 0
+	    GOType = 0
 	    GOSecuence()
 	}
 	
@@ -19,7 +18,7 @@ if(!(gameover or pause) and instance_exists(Control))
 	        //Sprint
 	        if((QueueMode != 6 and lines >= 40) or (QueueMode == 6 and lines >= 20))
 	        {
-	            GOType = 1
+	            GOType = 5
 				GameWin = true
 	            GOSecuence()
 	        }
@@ -28,7 +27,11 @@ if(!(gameover or pause) and instance_exists(Control))
 	    case 6:
 	        //Survival
 	        var RND
-	        if(Timer <= 0) Timer = irandom_range(360,480)
+	        if(Timer <= 0)
+			{
+				
+				Timer = irandom_range(360,480)
+			}
 	        else if(!Control.update) Timer --
         
 	        if(Control.stage == 3 and InGarb != 0 and Control.n == 0)
@@ -91,7 +94,7 @@ if(!(gameover or pause) and instance_exists(Control))
 	        {
 	            if(array_equals(Time,Zero) and !update) 
 	            {
-	                with(other) {GOType = 2; GOSecuence()}
+	                with(other) {GOType = 1; GOSecuence()}
 	            }
 	        }
 	        break;
@@ -232,7 +235,7 @@ if(!(gameover or pause) and instance_exists(Control))
 	        if((lines >= 200 and QueueMode < 5) or (lines >= 150 and QueueMode > 5))
 	        {
 				GameWin = true
-	            GOType = 9
+	            GOType = 11
 	            GOSecuence()
 	        }
 	        break;
@@ -249,20 +252,50 @@ if(!(gameover or pause) and instance_exists(Control))
 	        {
 				GameWin = true
 				
-	            if(GMode == 1)
+				switch(GMode)
 				{
-					GOType = 1
-					if(QueueMode == 2) GOType = 7
-				}
-	            if(GMode == 2)
-				{
-					GOType = 7
-					if(QueueMode == 2) GOType = 12
-				}
-				if(GMode == 3)
-				{
-					GOType = 8
-					if(QueueMode == 2) GOType = 12
+					case 1:
+						switch(QueueMode)
+						{
+							case 0: GOType =  6;break; //Tetris
+							case 1: GOType =  7;break; //Pentris
+							case 2: GOType =  8;break; //Multris
+							case 3: GOType =  5;break; //Tetris+
+							case 4: GOType =  8;break; //Pentris+
+							case 5: GOType =  9;break; //Polytris
+							case 6: GOType = 10;break; //Hextris
+						}
+						break
+						
+					case 2:
+						switch(QueueMode)
+						{
+							case 0: GOType =  7;break; //Tetris
+							case 1: GOType =  8;break; //Pentris
+							case 2: GOType =  9;break; //Multris
+							case 3: GOType =  6;break; //Tetris+
+							case 4: GOType =  9;break; //Pentris+
+							case 5: GOType = 10;break; //Polytris
+							case 6: GOType = 10;break; //Hextris
+						}
+						break
+						
+					case 3:
+						switch(QueueMode)
+						{
+							case 0: GOType =  8;break; //Tetris
+							case 1: GOType =  9;break; //Pentris
+							case 2: GOType = 10;break; //Multris
+							case 3: GOType =  7;break; //Tetris+
+							case 4: GOType = 10;break; //Pentris+
+							case 5: GOType = 11;break; //Polytris
+							case 6: GOType = 11;break; //Hextris
+						}
+						break
+						
+					default:
+						GOType = 0
+						break
 				}
 	            GOSecuence()
 	        }

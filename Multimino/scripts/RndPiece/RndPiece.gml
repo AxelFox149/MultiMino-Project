@@ -22,7 +22,7 @@ function RndPiece() {
 			
 			var PL = ds_list_create();
 			
-			switch (QueueMode)
+			switch(QueueMode)
 			{
 				case 3:
 					var i;

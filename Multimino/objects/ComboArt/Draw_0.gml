@@ -115,14 +115,17 @@ if(Miss){
 }
 
 ///Pausa y Modo de juego
+//else if(GMode != 10) draw_sprite_ext(ModeSprite,GMode + (13 * Options[2]),232,695,6,6,0,c_white,1)
 
 if(GMode == 15)      draw_sprite_ext(SpinEditor_spr,0,232,695,6,6,0,c_white,1)
-else if(GMode != 10) draw_sprite_ext(ModeSprite,GMode + (13 * Options[2]),232,695,6,6,0,c_white,1)
+else if(GMode != 10) draw_sprite_part_ext(Mode_New_spr,Options[2],0,30 * GMode,52,30,76,605,6,6,c_white,1)
 else
 {
-    draw_sprite_ext(ModeSprite,GMode,room_width/2,695,6,6,0,c_white,1)
-    draw_set_halign(fa_center)
-    draw_text(room_width/2,760,string_hash_to_newline("LV " + string(IALevel)))
+    //draw_sprite_ext(ModeSprite,GMode,room_width/2,695,6,6,0,c_white,1)
+    draw_sprite_part_ext(Mode_New_spr,Options[2],0,300,52,30,room_width/2 - 156,605,6,6,c_white,1)
+	
+	draw_set_halign(fa_center)
+    draw_text(room_width/2,814,string_hash_to_newline("LV " + string(IALevel)))
     draw_set_halign(fa_left)
 }
 
@@ -139,14 +142,15 @@ if(pause)
     }
     else
     {
-		ini_open(LanFile)
+		var InsOff = 0;
+		
+		if(_CurrentGP != -1) InsOff = 1
         draw_set_halign(fa_center)
         draw_set_alpha(0.85)
         draw_rectangle_colour(0,0,room_width,room_height,c_black,c_black,c_black,c_black,false)
         draw_set_alpha(1)
-        draw_text_transformed((room_width/2),(room_height/2) - 232,string_hash_to_newline(ini_read_string("Text","Game[14]","a")),0.85,0.85,0)
+        draw_text_transformed((room_width/2),(room_height/2) - 232,string_hash_to_newline(LanText[InsOff]),0.85,0.85,0)
         draw_set_halign(fa_left)
-		ini_close()
     }
 }
 

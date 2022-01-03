@@ -51,6 +51,6 @@ with(Enemy)
 gameover		= false
 Top             = false
 Scared          = false
-depth           = -5
+depth           = -8
 InGarb          = 0
 EnGarb          = 0

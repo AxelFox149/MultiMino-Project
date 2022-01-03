@@ -62,7 +62,22 @@ draw_set_colour(c_white)
 //--------------------------------
 
 EText[0,0] = "Next"
-EText[0,1] = "Sig."
-
 EText[1,0] = "Hold"
+
+EText[0,1] = "Sig."
 EText[1,1] = "Reser."
+
+EText[0,2] = "Tiếp"
+EText[1,2] = "Giữ"
+
+EText[0,3] = "Next"
+EText[1,3] = "Hold"
+
+EText[0,4] = "Next"
+EText[1,4] = "Hold"
+
+EText[0,5] = "Next"
+EText[1,5] = "Hold"
+
+EText[0,6] = "Next"
+EText[1,6] = "Hold"

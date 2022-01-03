@@ -24,7 +24,7 @@ Game Mode Index Value
 	15 = Spin Clear Editor
 */
 ini_open(LanFile)
-
+Hint			= ini_read_string("Text", "Game[6]", "a")
 EditorText[0,0] = ini_read_string("Text", "Game[7]", "a")
 EditorText[1,0] = ini_read_string("Text", "Game[8,0]", "a")
 EditorText[1,1] = ini_read_string("Text", "Game[8,1]", "a")

@@ -13,7 +13,11 @@ if(!pause and !gameover){
     else
     {
         if(Down) score += 1
-		Control.PSpin = false
+		with(Control)
+		{
+			Mini  = false
+			PSpin = false
+		}
     }
 }
 

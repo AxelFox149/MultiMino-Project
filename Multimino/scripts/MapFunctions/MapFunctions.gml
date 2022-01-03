@@ -74,8 +74,16 @@ function MapDataRead(){
 	ds_list_destroy(_scr)
 //	ds_list_destroy(_gpd)
 	
-	if(Options[2] == 0) LanFile = "ENG_Text.ini"
-	else				LanFile = "ESP_Text.ini"
+	switch(Options[2])
+	{
+		case 0: LanFile = "ENG_Text.ini"; break;
+		case 1:	LanFile = "ESP_Text.ini"; break;
+		case 2: LanFile = "VIE_Text.ini"; break;
+						
+		default:
+			LanFile = "ENG_Text.ini"
+			break;
+	}
 	
 	file_delete("Save.sav")
 };
@@ -162,6 +170,10 @@ function LanTextLoad(){
 	
 		MenuText[1][2,0] = ini_read_string("Text", "MenuText[22,0]","None")
 		MenuText[1][2,1] = ini_read_string("Text", "MenuText[22,1]","None")
+		MenuText[1][2,2] = ini_read_string("Text", "MenuText[22,2]","None")
+		MenuText[1][2,3] = ini_read_string("Text", "MenuText[22,3]","None")
+		MenuText[1][2,4] = ini_read_string("Text", "MenuText[22,4]","None")
+		MenuText[1][2,5] = ini_read_string("Text", "MenuText[22,5]","None")
 	
 		MenuText[1][3,0] = ini_read_string("Text", "MenuText[23,0]","None")
 		MenuText[1][3,1] = ini_read_string("Text", "MenuText[23,1]","None")
@@ -351,8 +363,16 @@ function JsonDataLoad(){
 	if(_OptCheck   != _OptCntHash) ErrorType = 6
 	if(_ScoreCheck != _ScoreHash)  ErrorType = 5
 	
-	if(Options[2] == 0) LanFile = "ENG_Text.ini"
-	else				LanFile = "ESP_Text.ini"
+	switch(Options[2])
+	{
+		case 0: LanFile = "ENG_Text.ini"; break;
+		case 1:	LanFile = "ESP_Text.ini"; break;
+		case 2: LanFile = "VIE_Text.ini"; break;
+						
+		default:
+			LanFile = "ENG_Text.ini"
+			break;
+	}
 	
 	if(ErrorType > 0) LoadError = true
 	
@@ -391,11 +411,11 @@ function DataEncoder(_Array){
           293,307,311,313,317,331,337,347,349,353,359,367,373,379,383,389,397,401,
           409,419,421,431,433,439,443,457,461,463,467,479,487,491,499,503,509,521,
           523,541,547,557,563,569,571,577,587,593,599,601,607,613,617,619,631,641,
-          643,647,653,659]
+          643,647,653,659,661,673,677,683,691,701,709,719,727,733,739,773,751,757]
 	
 	for(i = 0; i < _size; i++)
 	{
-		if(!is_string(_Array[i])) _S += _Array[i] * _Primes[i]
+		if(!is_string(_Array[i])) _S += _Array[i] * _Primes[i];
 		else
 		{
 			if(_Array[i] != "")

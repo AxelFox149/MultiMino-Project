@@ -25,8 +25,10 @@ function CheckBVal(State, ToCheck) {
 	        Holes   = 0
 	        y = 96
 	        x = 1056 + (64 * Step)
-        
-	        if((CurrentPiece >= 6 and CurrentPiece <= 15))
+			
+			if((CurrentPiece >= 6  and CurrentPiece <= 15) 
+			or (CurrentPiece >= 28 and CurrentPiece <  61) 
+			or (CurrentPiece >= 80 and CurrentPiece <  89))
 	        {
 	            y-= 32
 	            x-= 32
@@ -211,12 +213,38 @@ function CheckBVal(State, ToCheck) {
 			
 			#region new code
 			
-			for(i = 0; i < 4; i++)
+			var l, SPR, ANG;
+			
+			SPR = CurrentPiece - 1
+			ANG = image_index
+	
+			if(SPR == -1) exit
+			else if(SPR == 13 
+				or (SPR == 31 or SPR == 33 or SPR == 38) 
+				or (SPR >= 52 and SPR <= 54) 
+				or (SPR == 56 or SPR == 58) 
+				or (SPR >= 83 and SPR <= 87))
+				{
+					ANG *= -1
+					ANG = (ANG + 4) mod 4
+					image_index = ANG
+				}
+	
+			if(SPR >= 29)					l = 6
+			else if(SPR < 7)                l = 4
+			else if(SPR > 6 and SPR < 25)   l = 5
+			else if(SPR == 25)              l = 1
+			else if(SPR == 26 or SPR == 28) l = 3
+			else if(SPR == 27)              l = 2
+			
+			for(i = 0; i < l; i++)
 			{
-				PX = Block[image_index,CurrentPiece - 1][0 + (2 * i)] * 64
-				PY = Block[image_index,CurrentPiece - 1][1 + (2 * i)] * 64
+				PX = Block[image_index,SPR][0 + (2 * i)] * 64
+				PY = Block[image_index,SPR][1 + (2 * i)] * 64
 		
-				if(CurrentPiece >= 6)
+				if((SPR >= 5  and SPR <= 14) 
+				or (SPR >= 27 and SPR <  60) 
+				or (SPR >= 79 and SPR <  87))
 			    {
 			        PX *= 0.5
 			        PY *= 0.5

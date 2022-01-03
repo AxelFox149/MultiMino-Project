@@ -33,7 +33,6 @@ function SpinDetection(ObjPiece, DoubRot) {
 
 	index = CurrentPiece - 1
 
-
 	if((CurrentPiece == 6 or CurrentPiece == 25 or CurrentPiece == 26) and OSpin)
 	{
 		ObjPiece.Mini = false
@@ -136,7 +135,6 @@ function SpinDetection(ObjPiece, DoubRot) {
 		exit
 	}
 }
-
 
 function DrawDetection()
 {

@@ -402,11 +402,30 @@ switch(Sel)
             if(Up)  Options[Pos + MenuOff] --
             if(Down)Options[Pos + MenuOff] ++
             
+			//var PrevLan = Options[2];
+			
             switch(Pos + MenuOff)
             {
                 case 1:
                     Options[1] = (Options[1] + sprite_get_number(Point)) mod sprite_get_number(Point)
                     break;
+				
+				case 2:
+					Options[2] = (Options[2] + 3) mod 3
+					
+					switch(Options[2])
+					{
+						case 0: LanFile = "ENG_Text.ini"; break;
+						case 1:	LanFile = "ESP_Text.ini"; break;
+						case 2: LanFile = "VIE_Text.ini"; break;
+						
+						default:
+							LanFile = "ENG_Text.ini"
+							break;
+					}
+					LanTextLoad()
+					
+					break;
                 
 				case 6:
                     if(Up)  Options[Pos + MenuOff] += 2
@@ -436,13 +455,9 @@ switch(Sel)
                 
                 default:
                     Options[Pos + MenuOff] = (Options[Pos + MenuOff] + 2) mod 2
-					
-					if(Options[2] == 0) LanFile = "ENG_Text.ini"
-					else				LanFile = "ESP_Text.ini"
-			
-					LanTextLoad()
                     break;
             }
+			
 			Options[10] = 0 //No music
         }
     }

@@ -1,30 +1,32 @@
 /// @description Garbage bar, Tip for spin board
 
-if(GMode == 6 and !gameover and depth == -5)
+if(GMode == 6 and !gameover and depth == -8)
 {
-    draw_sprite_ext(Meter_spr,0,528,128,8,8,0,c_white,1)
-    draw_rectangle_colour(528,128,552,1408 - (InGarb*64),c_black,c_black,c_black,c_black,false)
+    //draw_sprite_ext(Meter_spr,0,528,128,8,8,0,c_white,1)
+    //draw_rectangle_colour(528,128,552,1408 - (InGarb*64),c_black,c_black,c_black,c_black,false)
+	var minPGar = min(21,InGarb)
+	draw_sprite_part_ext(Meter_spr,0,0,160 - (8 * minPGar),3,8 * minPGar,528,1408 - (minPGar * 64),8,8,c_white,1)
 }
 
 if(GMode == 7)
 {
-	ini_open(LanFile)
 	draw_set_color(c_white)
 	if(isDouble) AnOffset = AcceleScr(AnOffset, 492, 35.5 - abs(AnOffset *   36/492))
 	else		 AnOffset = AcceleScr(AnOffset,   0, 36   - abs(AnOffset * 35.5/492))
 	
-    draw_sprite_ext(OptionSpr,1,AnOffset - 420,308,6,6,0,c_white,1)
-    draw_text(AnOffset - 468,332,ini_read_string("Text", "Game[6]", "a"))
-	ini_close()
+	if(AnOffset != 0)
+	{
+		draw_sprite_ext(OptionSpr,1,AnOffset - 420,308,6,6,0,c_white,1)
+		draw_text(AnOffset - 468, 332, Hint)
+	}
 }
 
-if(GMode == 10 and !gameover and depth == -5)
+if(GMode == 10 and !gameover and depth == -8)
 {
-    draw_sprite_ext(Meter_spr,0,80,128,8,8,0,c_white,1)
-    draw_rectangle_colour(80,128,104,1408 - (InGarb*64),c_black,c_black,c_black,c_black,false)
-    
-    draw_sprite_ext(Meter_spr,0,976,128,8,8,0,c_white,1)
-    draw_rectangle_colour(976,128,1000,1408 - (EnGarb*64),c_black,c_black,c_black,c_black,false)
+	var minPGar = min(21,InGarb), minEGar = min(21,EnGarb);
+	
+	draw_sprite_part_ext(Meter_spr,0,0,160 - (8 * minPGar),3,8 * minPGar,80, 1408 - (minPGar * 64),8,8,c_white,1)
+	draw_sprite_part_ext(Meter_spr,0,0,160 - (8 * minEGar),3,8 * minEGar,976,1408 - (minEGar * 64),8,8,c_white,1)
 }
 
 ///Sprites en editor
@@ -85,35 +87,35 @@ if(GMode == 11 and instance_exists(Control))
 		
 		if(_CurrentGP != -1)
 		{
-			draw_text_transformed(880, 56 + 56 * MovePoiter,  "(Y)",xyScal,xyScal,0)
-			draw_text_transformed(832, 56 ," ^",xyScal,xyScal,0)
-			draw_text_transformed(832, 112,"RS",xyScal,xyScal,0)
-			draw_text_transformed(832, 168," v",xyScal,xyScal,0)
+			draw_text_transformed(880, 48 + 56 * MovePoiter,  "(Y)",xyScal,xyScal,0)
+			draw_text_transformed(832, 48 ," ^",xyScal,xyScal,0)
+			draw_text_transformed(832, 104,"RS",xyScal,xyScal,0)
+			draw_text_transformed(832, 160," v",xyScal,xyScal,0)
 			
-			draw_text_transformed(944, 56,  "O-Spin:",xyScal,xyScal,0)
-			draw_text_transformed(944, 112, "20G:"   ,xyScal,xyScal,0)
-			draw_text_transformed(944, 168, "LockD:" ,xyScal,xyScal,0)
+			draw_text_transformed(944, 48,  "O-Spin:",xyScal,xyScal,0)
+			draw_text_transformed(944, 104, "20G:"   ,xyScal,xyScal,0)
+			draw_text_transformed(944, 160, "LockD:" ,xyScal,xyScal,0)
 		}
 		else
 		{
-			draw_text_transformed(848, 56,  "(F1) O-Spin:",xyScal,xyScal,0)
-			draw_text_transformed(848, 112, "(F2) 20G:"   ,xyScal,xyScal,0)
-			draw_text_transformed(848, 168, "(F3) LockD:" ,xyScal,xyScal,0)
+			draw_text_transformed(848, 48,  "(F1) O-Spin:",xyScal,xyScal,0)
+			draw_text_transformed(848, 104, "(F2) 20G:"   ,xyScal,xyScal,0)
+			draw_text_transformed(848, 160, "(F3) LockD:" ,xyScal,xyScal,0)
 		}
 		
 		
-        if(OSpin) draw_text_transformed_color(1088, 56, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
-        else      draw_text_transformed_color(1088, 56, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
+        if(OSpin) draw_text_transformed_color(1088, 48, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
+        else      draw_text_transformed_color(1088, 48, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
 		
-		if(G20)   draw_text_transformed_color(1088, 112, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
-        else      draw_text_transformed_color(1088, 112, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
+		if(G20)   draw_text_transformed_color(1088, 104, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
+        else      draw_text_transformed_color(1088, 104, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
 		
-		if(LockD) draw_text_transformed_color(1088, 168, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
-        else      draw_text_transformed_color(1088, 168, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
+		if(LockD) draw_text_transformed_color(1088, 160, "Yes",xyScal,xyScal,0,c_green,c_green,c_green,c_green,1)
+        else      draw_text_transformed_color(1088, 160, "No" ,xyScal,xyScal,0,c_red,c_red,c_red,c_red,1)
 		
-                  draw_text_transformed(640, 64, "Slot " + string(SpinBoard),xyScal,xyScal,0)
+                  draw_text_transformed(640, 48, "Slot " + string(SpinBoard),xyScal,xyScal,0)
         
-        if(SaveFlag) draw_text_transformed(640, 128, EditorText[3,0],xyScal,xyScal,0)
+        if(SaveFlag) draw_text_transformed(640, 104, EditorText[3,0],xyScal,xyScal,0)
         
         draw_text_transformed(64,64,EditorText[4,InsOff],xyScal - 0.05,xyScal - 0.05,0)
         draw_set_halign(fa_center)
@@ -168,15 +170,21 @@ if(gameover)
     {
         if(GMode != 10)
         {
-            draw_sprite_ext(SwitchType, GOType + (13 * Options[2]), room_width/2, room_height/2,8,8,0,c_white,1)
-            if(!NR) draw_sprite_ext(SwitchType, 11 + (13 * Options[2]), room_width/2, 840,8,8,0,c_white,1)
+			draw_sprite_part_ext(SwitchType,Options[2],0,14 * GOType, 68, 14, (room_width/2) - 256, (room_height/2) - 44,8,8,c_white,1)
+			
+            //draw_sprite_ext(SwitchType, GOType + (13 * Options[2]), room_width/2, room_height/2,8,8,0,c_white,1)
+            //if(!NR) draw_sprite_ext(SwitchType, 11 + (13 * Options[2]), room_width/2, 840,8,8,0,c_white,1)
+			
+			if(!NR) draw_sprite_part_ext(SwitchType, Options[2], 0 , 182, 68, 14, (room_width/2) - 256, 796,8,8,c_white,1)
             if(alarm_get(1) < 0) alarm[1] = 90
         }
         else
         {
             if((P1Count < FirstTo) and (P2Count < FirstTo))
             {
-                draw_sprite_ext(SwitchType, GOType + (13 * Options[2]), 448 + (896 * (Lost - 1)), room_height/2,8,8,0,c_white,1)
+				draw_sprite_part_ext(SwitchType, Options[2],0,14 * GOType, 68, 14, 192 + (896 * (Lost - 1)), (room_height/2) - 44,8,8,c_white,1)
+				
+                //draw_sprite_ext(SwitchType, GOType + (13 * Options[2]), 448 + (896 * (Lost - 1)), room_height/2,8,8,0,c_white,1)
                 if(alarm_get(3) < 0) alarm[3] = 90
 				
 				draw_sprite_ext(PointCount_spr, P1Count,448 , room_height/2 + 128,8,8,0,c_white,1)
@@ -187,8 +195,11 @@ if(gameover)
             }
             else
             {
-                draw_sprite_ext(SwitchType, 6 + (13 * Options[2]), 448 + (896 *  bool(Lost - 1)), room_height/2,8,8,0,c_white,1)
-                draw_sprite_ext(SwitchType, 5 + (13 * Options[2]), 448 + (896 * !bool(Lost - 1)), room_height/2,8,8,0,c_white,1)
+				draw_sprite_part_ext(SwitchType, Options[2],0,14 * 4, 68, 14, 192 + (896 *  bool(Lost - 1)), (room_height/2) - 44,8,8,c_white,1)
+                draw_sprite_part_ext(SwitchType, Options[2],0,14 * 3, 68, 14, 192 + (896 * !bool(Lost - 1)), (room_height/2) - 44,8,8,c_white,1)
+				
+				//draw_sprite_ext(SwitchType, 6 + (13 * Options[2]), 448 + (896 *  bool(Lost - 1)), room_height/2,8,8,0,c_white,1)
+                //draw_sprite_ext(SwitchType, 5 + (13 * Options[2]), 448 + (896 * !bool(Lost - 1)), room_height/2,8,8,0,c_white,1)
                 if(alarm_get(1) < 0) alarm[1] = 120
             }
         }
@@ -216,9 +227,12 @@ if(gameover)
 			draw_text_color(RepAnOff - 468,332,"F1: Save Replay",col,col,col,col,1)
 		}
 		
-        if(NR) draw_sprite_ext(SwitchType, 10 + (13 * Options[2]), room_width/2, 840,8,8,0,c_white,1)
+        if(NR) draw_sprite_part_ext(SwitchType, Options[2], 0 , 168, 68, 14, (room_width / 2) - 256, 796,8,8,c_white,1)
         
-        draw_sprite_ext(Des_spr, Sel + (2 * Options[2]), 664, 960,8,8,0,c_white,1)
+        draw_sprite_part_ext(SwitchType, Options[2], 0, 196, 68, 28, (room_width / 2) - 256, 960, 8, 8, c_white, 1)
+		draw_sprite_ext(GOArrow_New_spr,0,(room_width / 2) - 208, 992 + (112 * Sel),8,8,0,c_white,1)
+		
+		//draw_sprite_ext(Des_spr, Sel + (2 * Options[2]),  (room_width / 2) - 528, 992 + (112 * Sel),8,8,0,c_white,1)
     }
 }
 

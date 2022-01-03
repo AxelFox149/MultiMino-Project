@@ -205,7 +205,11 @@ if(floor(Tic) < 1)
             y -= 64
             break
         }
-        else Control.PSpin = false
+        else with(Control)
+		{
+			Mini  = false
+			PSpin = false
+		}
     }
 }
 else if((alarm_get(0) < 0) and (floor(Tic) > 0)) alarm_set(0, floor(Tic))
@@ -254,7 +258,18 @@ if(Drop and GMode != 12 and CHD)
         part_emitter_burst(HardDrop,DropEmm,p_Spark, Dis)
     }
     y = DropY
-    Control.update = true
+	
+	Control.update = true
+	
+	if(Dis > 0)
+	{
+		with(Control)
+		{
+			Mini  = false
+			PSpin = false
+		}
+	}
+	
 	ComboArt.VerVel = -15
     if(Options[9]) audio_play_sound(GSounds[3],10,false)
     score += (2 * Dis)

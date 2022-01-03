@@ -18,7 +18,7 @@ if(Sel < 3)
         ToRead = MenuText[0][2,0]
 		
 		draw_sprite_ext(GradBox_spr,0,256,128,8,8,0,c_white,1)
-        draw_text(room_width/2,152,string_hash_to_newline(ToRead))
+        draw_text(room_width/2,128,string_hash_to_newline(ToRead))
         
         Start = 316
     }
@@ -47,7 +47,7 @@ if(Sel < 3)
 		
 		
         draw_sprite_ext(OptionSpr, 0, Vel[i], Start + (128 * i),8,8,0,Color,1)
-        draw_text_colour(Vel[i] + 24, Start + (128 * i) + 24, string_hash_to_newline(ToRead), Color,Color,Color,Color,1)
+        draw_text_colour(Vel[i] + 24, Start + (128 * i), string_hash_to_newline(ToRead), Color,Color,Color,Color,1)
         
         if(Sel == 2)
         {
@@ -73,12 +73,13 @@ if(Sel < 3)
             else
             {
                 //ToRead = ini_read_string("Text","MenuText[2" + string(i + MenuOff) + "," + string(Options[i + MenuOff]) + "]","None")
-                if(Options[i + MenuOff] < 2) ToRead = MenuText[1][i + MenuOff, Options[i + MenuOff]]
+                
+				if(Options[i + MenuOff] < 2 or (i + MenuOff) == 2) ToRead = MenuText[1][i + MenuOff, Options[i + MenuOff]]
 				else ToRead = ""
 				
 				draw_set_halign(fa_center)
-                if !(i > (5 - MenuOff) and i < (9 - MenuOff)) draw_text_colour(Vel[i] + 616, Start + (128 * i) + 32, string_hash_to_newline(ToRead),	Color,Color,Color,Color,1)
-                else										  draw_text_colour(Vel[i] + 616, Start + (128 * i) + 32, string_hash_to_newline(Options[i + MenuOff]),Color,Color,Color,Color,1)
+                if !(i > (5 - MenuOff) and i < (9 - MenuOff)) draw_text_colour(Vel[i] + 620, Start + (128 * i) + 13, string_hash_to_newline(ToRead),	Color,Color,Color,Color,1)
+                else										  draw_text_colour(Vel[i] + 620, Start + (128 * i) + 13, string_hash_to_newline(Options[i + MenuOff]),Color,Color,Color,Color,1)
                 draw_set_halign(fa_left)
             }
             
@@ -124,25 +125,25 @@ if(Sel < 3)
             //str = ini_read_string("Text","MenuText[14,0]","None")
             str = MenuText[0][4,0]
 			
-			draw_text_colour(1216, 558, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
-            draw_text(1200, 536, string_hash_to_newline(str))
+			draw_text_colour(1216, 536, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
+            draw_text(1200, 512, string_hash_to_newline(str))
             
             //str = ini_read_string("Text","MenuText[14,1]","None")
 			str = MenuText[0][4,1]
-            draw_text_colour(1216, 680, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
-            draw_text(1200, 664, string_hash_to_newline(str))
+            draw_text_colour(1216, 664, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
+            draw_text(1200, 640, string_hash_to_newline(str))
         }
         else if(Pos == 7)
         {
             //str = ini_read_string("Text","MenuText[14,2]","None")
 			str = MenuText[0][4,2]
-            draw_text_colour(1216, 680, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
-            draw_text(1200, 664, string_hash_to_newline(str))
+            draw_text_colour(1216, 664, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
+            draw_text(1200, 640, string_hash_to_newline(str))
             
             //str = ini_read_string("Text","MenuText[14,3]","None")
 			str = MenuText[0][4,3]
-            draw_text_colour(1216, 808, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
-            draw_text(1200, 792, string_hash_to_newline(str))
+            draw_text_colour(1216, 792, string_hash_to_newline(str),c_black,c_black,c_black,c_black,0.5)
+            draw_text(1200, 768, string_hash_to_newline(str))
         }
     }
     
@@ -151,7 +152,7 @@ if(Sel < 3)
         //ToRead = ini_read_string("Text","Texto[0,2]","None")
 		ToRead = Text[0,2]
         draw_sprite_ext(GradBox_spr,0,room_width - 512,128,8,8,0,c_white,1)
-        draw_text(1424,144,string_hash_to_newline(ToRead))
+        draw_text(1424,128,string_hash_to_newline(ToRead))
     }
     
     if(Third)
@@ -197,8 +198,8 @@ if(Sel < 3)
                 draw_sprite_ext(ContBound_spr,0,1024, 332 + (88 * i),8,8,0,Color,1)
                 draw_sprite_ext(ContBound_spr,0,1360, 332 + (88 * i),8,8,0,Color,1)
                 draw_set_halign(fa_center)
-                draw_text_transformed_colour(1152, 348 + (88 * i), string_hash_to_newline(KeyChar),0.9,0.9,0,Color,Color,Color,Color,1)
-                draw_text_transformed_colour(1488, 348 + (88 * i), string_hash_to_newline(ToRead) ,0.9,0.9,0,Color,Color,Color,Color,1)
+                draw_text_transformed_colour(1152, 336 + (88 * i), string_hash_to_newline(KeyChar),0.9,0.9,0,Color,Color,Color,Color,1)
+                draw_text_transformed_colour(1488, 336 + (88 * i), string_hash_to_newline(ToRead) ,0.9,0.9,0,Color,Color,Color,Color,1)
                 draw_set_halign(fa_left)    
             }
             else
@@ -208,7 +209,7 @@ if(Sel < 3)
                 
                 draw_sprite_ext(ContBound_spr,0,1192, 1124,8,8,0,Color,1)
                 draw_set_halign(fa_center)
-                draw_text_transformed_colour(1320, 1140, string_hash_to_newline(ToRead),0.9,0.9,0,Color,Color,Color,Color,1)
+                draw_text_transformed_colour(1320, 1128, string_hash_to_newline(ToRead),0.9,0.9,0,Color,Color,Color,Color,1)
                 draw_set_halign(fa_left)
             }
             
@@ -221,7 +222,7 @@ if(Sel < 3)
 var ToRead = "";
 
 draw_set_font(Console)
-if(Sel == 0) draw_text(32,room_height - 64,string_hash_to_newline("v " + string(GM_version)))
+if(Sel == 0) draw_text(32,room_height - 80,string_hash_to_newline("v " + string(GM_version)))
 
 if(Sel < 3)
 {
@@ -230,7 +231,7 @@ if(Sel < 3)
 	    //ToRead = ini_read_string("Text", "Desc[" + string(Sel) + "," + string(Pos + MenuOff) + "]" , "None")
 		ToRead = Desc[0][Sel,Pos + MenuOff]
     
-	    draw_text_ext(920, 1308, string_hash_to_newline(ToRead), 55, 832)
+	    draw_text_ext(920, 1292, string_hash_to_newline(ToRead), 55, 832)
 	}
 	else if(Sel == 1)
 	{
@@ -246,7 +247,7 @@ if(Sel < 3)
 	    else				ToRead = Desc[0][3, SecPos + 3]
 		//ToRead = ini_read_string("Text", "Desc[3," + string(SecPos + 3) + "]" , "None")
     
-	    draw_text_ext(920, 1308, string_hash_to_newline(ToRead), 55, 832)
+	    draw_text_ext(920, 1292, string_hash_to_newline(ToRead), 55, 832)
 	}
 }
 
@@ -262,13 +263,13 @@ if(Sel == 3)
     
     //str = ini_read_string("Text","MenuText[12,1]","None")
 	str = MenuText[0][2,1]
-    draw_text(room_width/2,152,string_hash_to_newline(str))
+    draw_text(room_width/2,128,string_hash_to_newline(str))
     
     draw_sprite_ext(IndexBox_spr,0,656,280,8,8,0,c_white,1)
     
     //str = ini_read_string("Text","MenuText[13," + string(ScoreIndex) + "]","None")
 	str = MenuText[0][3,ScoreIndex]
-    draw_text(room_width/2,296,string_hash_to_newline(str))
+    draw_text(room_width/2,272,string_hash_to_newline(str))
     
     draw_set_halign(fa_right)
 	
@@ -309,33 +310,33 @@ if(Sel == 3)
 		
 			if(i == 4)
 			{
-				draw_text_colour(768, 544 + 128 * i, Scores[4], Color,Color,Color,Color,1)
-				draw_text_colour(1200,544 + 128 * i, Scores[11],Color,Color,Color,Color,1)
+				draw_text_colour(768, 520 + 128 * i, Scores[4], Color,Color,Color,Color,1)
+				draw_text_colour(1200,520 + 128 * i, Scores[11],Color,Color,Color,Color,1)
 			}
 			else if(i == 6)
 			{
-				draw_text_colour(768, 544 + 128 * i, Scores[6], Color,Color,Color,Color,1)
-				draw_text_colour(1200,544 + 128 * i, Scores[13],Color,Color,Color,Color,1)
+				draw_text_colour(768, 520 + 128 * i, Scores[6], Color,Color,Color,Color,1)
+				draw_text_colour(1200,520 + 128 * i, Scores[13],Color,Color,Color,Color,1)
 			}
 			else
 			{
-				draw_text_colour(768, 544 + 128 * i, Scores[(i)    + (15 * ScoreIndex)],Color,Color,Color,Color,1)
-				draw_text_colour(1200,544 + 128 * i, Scores[(i + 7)+ (15 * ScoreIndex)],Color,Color,Color,Color,1)
+				draw_text_colour(768, 520 + 128 * i, Scores[(i)    + (15 * ScoreIndex)],Color,Color,Color,Color,1)
+				draw_text_colour(1200,520 + 128 * i, Scores[(i + 7)+ (15 * ScoreIndex)],Color,Color,Color,Color,1)
 			}
 		
 			if(i == 0)
 			{
 				draw_sprite_ext(ScoreBox_spr,clock, 1248, 520, 8,8,0,Color,1)
-				draw_text_colour(1632, 544, Scores[14 + (15 * ScoreIndex)],Color,Color,Color,Color,1)
+				draw_text_colour(1632, 520, Scores[14 + (15 * ScoreIndex)],Color,Color,Color,Color,1)
 			}
 		
 			if(Pos == 4) Color = $ffffff
 	        else         Color = $505050
-			draw_text_colour(560,1056, "AC's:",Color,Color,Color,Color,1)
+			draw_text_colour(560,1032, "AC's:",Color,Color,Color,Color,1)
 		
 			if(Pos == 6) Color = $ffffff
 	        else         Color = $505050
-			draw_text_colour(536,1312, "M.C:",Color,Color,Color,Color,1)
+			draw_text_colour(536,1288, "M.C:",Color,Color,Color,Color,1)
 	    }
 	}
 	else
@@ -375,8 +376,8 @@ if(Sel == 3)
 				case 3: draw_sprite_ext(Crown_spr,			An, 120 + hoff, 504 + 128 * i, 8,8,0,Color,1); break;	
 			}
 			
-			draw_text_colour(768  + hoff, 544 + 128 * i, Scores[(i)    + (15 * ScoreIndex)],Color,Color,Color,Color,1)
-			draw_text_colour(1200 + hoff, 544 + 128 * i, Scores[(i + 7)+ (15 * ScoreIndex)],Color,Color,Color,Color,1)
+			draw_text_colour(768  + hoff, 520 + 128 * i, Scores[(i)    + (15 * ScoreIndex)],Color,Color,Color,Color,1)
+			draw_text_colour(1200 + hoff, 520 + 128 * i, Scores[(i + 7)+ (15 * ScoreIndex)],Color,Color,Color,Color,1)
 		}
 	}
 	
@@ -390,7 +391,7 @@ if(Sel == 3)
 	{
 		draw_sprite_ext(Classic_T_spr,0,1216,1424,6,6,0,c_white,1)
 		draw_sprite_ext(ScoreBox_spr,0,1408,1416,8,8,0,c_white,1)
-		draw_text(1776,1440,Scores[110])
+		draw_text(1776,1416,Scores[110])
 	}
 }
 
@@ -401,14 +402,14 @@ if(Sel == 4)
 	var i, Start, Color;
         
     //Start = (room_height - (128 * (MaxPos + 1)))/2
-	Start = 452
+	Start = 428
 	
 	draw_set_color(c_white)
     draw_set_font(Console_Title)
     draw_set_halign(fa_center)
 
         draw_sprite_ext(GradBox_spr,0,256,128,8,8,0,c_white,1)
-		draw_text(room_width/2,152,Text[0,4])
+		draw_text(room_width/2,128,Text[0,4])
         //draw_text(room_width/2,152,ini_read_string("Text","Texto[0,4]","None"))
 
     draw_set_halign(fa_left)
@@ -426,7 +427,7 @@ if(Sel == 4)
 	draw_text_transformed(384, 1448,MenuText[0][5,0],0.7,0.7,0)
 	draw_text_transformed(1024,1448,MenuText[0][5,1 + DelCounter],0.7,0.7,0)
 	
-	draw_sprite_ext(SArrow,0,272,Start + (104 * Pos) + 24,8,8,0,c_white,1)
+	draw_sprite_ext(SArrow,0,272,Start + (104 * Pos) + 48,8,8,0,c_white,1)
 	
 	for(i = 0; i <= MaxPos; i++)
     {	
@@ -437,7 +438,7 @@ if(Sel == 4)
 		}
         else Color = $505050
 		
-		if(i < array_length(ReplayList)) draw_text_transformed_color(384, Start + (104* i), ReplayList[i + MenuOff], 0.7, 0.7, 0, Color,Color,Color,Color,1)
+		if(i < array_length(ReplayList)) draw_text_transformed_color(384, Start + (104 * i), ReplayList[i + MenuOff], 0.7, 0.7, 0, Color,Color,Color,Color,1)
 		else							 draw_text_transformed_color(384, Start + (104 * i), "Empty", 0.7, 0.7, 0, Color,Color,Color,Color,1)
 	}
 }
@@ -539,10 +540,13 @@ if(PixelFade != 0)
 			if(GMode != 10) room_goto(Tablero)
 	        else            
 	        {
-				QueueMode = 0
-	            LB = 1
-	            UB = 7
-	            TP = 7
+				QueueMode = 2
+					LB = 1;
+                    UB = 29;
+                    TP = 29;
+	            //LB = 1
+	            //UB = 7
+	            //TP = 7
 	            room_goto(Battle)
 	        }
 		}

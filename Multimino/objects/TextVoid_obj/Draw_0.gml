@@ -10,17 +10,25 @@ if(!Scores[111])
 			var Dn = keyboard_check_pressed(vk_down)
 			
 			if(Up and Options[2] != 0) Options[2] --
-			if(Dn and Options[2] != 1) Options[2] ++
+			if(Dn and Options[2] != 2) Options[2] ++
 			
-			draw_sprite_ext(SArrow,0,room_width/2 - 160, room_height/2 - 68 + (124 * Options[2]),7,7,0,c_white,1)
+			draw_sprite_ext(SArrow,0,room_width/2 - 200, room_height/2 - 124 + (124 * Options[2]),7,7,0,c_white,1)
 			
 			draw_text(room_width/2, room_height/4, " - Select your language - ")
-			draw_text(room_width/2, room_height/2, string_hash_to_newline("English## Español"))
+			draw_text(room_width/2, room_height/2, string_hash_to_newline("English##Español##Tiếng Việt"))
 			
 			if(keyboard_check_pressed(vk_enter))
 			{
-				if(Options[2] == 0) LanFile = "ENG_Text.ini"
-				else				LanFile = "ESP_Text.ini"
+				switch(Options[2])
+				{
+					case 0: LanFile = "ENG_Text.ini"; break;
+					case 1:	LanFile = "ESP_Text.ini"; break;
+					case 2: LanFile = "VIE_Text.ini"; break;
+						
+					default:
+						LanFile = "ENG_Text.ini"
+						break;
+				}
 				
 				ini_open(LanFile)
 				
@@ -45,8 +53,16 @@ if(!Scores[111])
 			
 			if(keyboard_check_pressed(vk_enter))
 			{
-				if(Options[2] == 0) LanFile = "ENG_Text.ini"
-				else				LanFile = "ESP_Text.ini"
+				switch(Options[2])
+				{
+					case 0: LanFile = "ENG_Text.ini"; break;
+					case 1:	LanFile = "ESP_Text.ini"; break;
+					case 2: LanFile = "VIE_Text.ini"; break;
+						
+					default:
+						LanFile = "ENG_Text.ini"
+						break;
+				}
 				
 				ini_open(LanFile)
 				
@@ -131,6 +147,7 @@ if(fade)
 	if(anframe >= 8)
 	{
 		var _save = false
+		
 		if(!Scores[111])
 		{
 			Scores[111] = true
@@ -144,6 +161,7 @@ if(fade)
 		
 		
 		if(_save) JsonDataSave()
+		LanTextLoad()
 		draw_set_valign(fa_top)
 		draw_set_halign(fa_left)
 		room_goto_next()
