@@ -205,7 +205,7 @@ else if((GMode != 10) and !DrawDes)
 			Options[6] = PrevDAS
 			Options[7] = PrevARR
 			
-			MapDataSave()
+			JsonDataSave()
 			
 			if(GMode == 12)
 			{

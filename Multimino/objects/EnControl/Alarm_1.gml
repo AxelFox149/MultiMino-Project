@@ -11,6 +11,7 @@ with(Enemy)
     Pulse  = true
 }
 
+update   = false
 stage    = 0
 n        = 0
 NState   = 0

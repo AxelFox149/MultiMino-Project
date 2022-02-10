@@ -177,8 +177,12 @@ if(!(gameover or pause) and instance_exists(Control))
 	            var i, j;
 	            for(j = 0; j < 10; j++)
 	            {
-	                if(instance_exists(EnPlaced)) with(EnPlaced) y -= 64
-                
+	                if(instance_exists(EnPlaced)) with(EnPlaced)
+					{
+						Posy --
+						y -= 64
+					}
+					
 	                if(PrevR2 == -1) RND = irandom(9)
 	                else
 	                {

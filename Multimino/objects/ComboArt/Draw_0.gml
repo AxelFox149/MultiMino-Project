@@ -158,8 +158,9 @@ if(pause)
 
 if(AC)
 {
-    draw_sprite_ext(AllClear,ACFrame,896,320,8 * (1 + SizeCount),8 * (1 + SizeCount),0,c_white,1)
-    
+	if(GMode != 10) draw_sprite_ext(AllClear,ACFrame,896,320,8 * (1 + SizeCount),8 * (1 + SizeCount),0,c_white,1)
+    else			draw_sprite_ext(AllClear,ACFrame,448,320,8 * (1 + SizeCount),8 * (1 + SizeCount),0,c_white,1)
+	
     if!(pause)
     {
         if(ACCounter < 8 or ACCounter > 82) ACFrame += 0.5
@@ -173,6 +174,26 @@ if(AC)
         ACCounter = 0
         ACFrame   = 0
         SizeCount = 0
+    }
+}
+
+if(EnAC)
+{
+    draw_sprite_ext(AllClear,EnACFrame,1344,320,8 * (1 + EnSizeCount),8 * (1 + EnSizeCount),0,c_white,1)
+    
+    if!(pause)
+    {
+        if(EnACCounter < 8 or EnACCounter > 82) EnACFrame += 0.5
+        EnACCounter ++
+        if(EnACCounter mod 6 == 0) EnSizeCount += 0.013
+    }
+    
+    if(EnACCounter > 90)
+    {
+        EnAC = false
+        EnACCounter = 0
+        EnACFrame   = 0
+        EnSizeCount = 0
     }
 }
 

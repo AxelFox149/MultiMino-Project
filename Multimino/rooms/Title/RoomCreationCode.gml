@@ -2,9 +2,11 @@ globalvar level, lines, capture, Style, ColorPal, LevelCap, GMode, GOType;
 globalvar LB, UB, TP, CDelay, Warning, PixelFade, Scared, IALevel, FirstTo;
 globalvar Block, Corners, GSounds, CurrentMusic, pause, gameover, IsLevelUp;
 globalvar G20, LockD, OSpin, QueueMode, DevMode, DangerMusic, NormalMusic;
-globalvar CurrentReplay, PlayMode, RecordMode, TotalFrames, IsEdit;
+globalvar CurrentReplay, PlayMode, RecordMode, TotalFrames, IsEdit, PieceMaxState;
 
 //show_debug_overlay(true)
+
+PieceMaxState = array_create(90, 4)
 
 IsEdit    = false
 PixelFade = -1;
@@ -540,3 +542,102 @@ PieceIndex[87] = H_l2
 
 PieceIndex[88] = H_u1
 PieceIndex[89] = H_n2
+
+//-------------------
+//Tetros
+
+PieceMaxState[0] = 0
+PieceMaxState[1] = 4
+PieceMaxState[2] = 2
+PieceMaxState[3] = 2
+PieceMaxState[4] = 4
+PieceMaxState[5] = 4
+PieceMaxState[6] = 1
+PieceMaxState[7] = 2
+
+//Pentos
+PieceMaxState[8] = 4
+PieceMaxState[9] = 4
+PieceMaxState[10] = 4
+PieceMaxState[11] = 4
+PieceMaxState[12] = 4
+PieceMaxState[13] = 4
+PieceMaxState[14] = 4
+PieceMaxState[15] = 4
+PieceMaxState[16] = 2
+PieceMaxState[17] = 4
+PieceMaxState[18] = 4
+PieceMaxState[19] = 4
+PieceMaxState[20] = 2
+PieceMaxState[21] = 2
+PieceMaxState[22] = 4
+PieceMaxState[23] = 4
+PieceMaxState[24] = 1
+
+//Mini
+PieceMaxState[25] = 1
+PieceMaxState[26] = 2
+PieceMaxState[27] = 2
+PieceMaxState[28] = 4
+
+//Hexo
+PieceMaxState[29] = 4
+PieceMaxState[30] = 4
+PieceMaxState[31] = 4
+PieceMaxState[32] = 4
+PieceMaxState[33] = 4
+PieceMaxState[34] = 2
+PieceMaxState[35] = 2
+PieceMaxState[36] = 4
+PieceMaxState[37] = 2
+PieceMaxState[38] = 2
+PieceMaxState[39] = 4
+PieceMaxState[40] = 4
+PieceMaxState[41] = 4
+PieceMaxState[42] = 4
+PieceMaxState[43] = 4
+PieceMaxState[44] = 4
+PieceMaxState[45] = 4
+PieceMaxState[46] = 4
+PieceMaxState[47] = 4
+PieceMaxState[48] = 4
+PieceMaxState[49] = 4
+PieceMaxState[50] = 4
+PieceMaxState[51] = 4
+PieceMaxState[52] = 4
+PieceMaxState[53] = 4
+PieceMaxState[54] = 4
+PieceMaxState[55] = 2
+PieceMaxState[56] = 2
+PieceMaxState[57] = 2
+PieceMaxState[58] = 2
+PieceMaxState[59] = 2
+PieceMaxState[61] = 2
+PieceMaxState[62] = 2
+PieceMaxState[63] = 4
+PieceMaxState[64] = 4
+PieceMaxState[65] = 4
+PieceMaxState[66] = 4
+PieceMaxState[67] = 4
+PieceMaxState[68] = 4
+PieceMaxState[69] = 2
+PieceMaxState[70] = 4
+PieceMaxState[71] = 4
+PieceMaxState[72] = 4
+PieceMaxState[73] = 4
+PieceMaxState[74] = 4
+PieceMaxState[75] = 4
+PieceMaxState[76] = 4
+PieceMaxState[77] = 4
+PieceMaxState[78] = 4
+PieceMaxState[79] = 4
+PieceMaxState[80] = 4
+PieceMaxState[81] = 4
+PieceMaxState[82] = 4
+PieceMaxState[83] = 4
+PieceMaxState[84] = 4
+PieceMaxState[85] = 4
+PieceMaxState[86] = 4
+PieceMaxState[87] = 4
+PieceMaxState[88] = 4
+PieceMaxState[89] = 4

@@ -118,24 +118,30 @@ if(update and stage == 0)
         if(GMode == 6 or GMode == 10)
         {
             var LineReturn = 0;
+			var isAC = AC;
+			var Cond = !Mini and PSpin
+			var lnum = n
+			var CCount = abs(ComboCount)
+			var IsBon  = real(Bonus)
             
-            LineReturn           = GameMode.GarbageSend[!Mini and PSpin, n] + real(Bonus)
-            if(AC)   LineReturn  = GameMode.GarbageSend[!Mini and PSpin, 6]
-			LineReturn          += GameMode.ComboSend[abs(ComboCount)]
 			
-            if(GMode == 6)		GameMode.InGarb = max(0, GameMode.InGarb - LineReturn)
-            else
-            {
-                with(GameMode)
-                {
+			with(GameMode)
+			{
+	            if(isAC)   LineReturn  = GarbageSend[Cond, 7]
+				else	   LineReturn  = GarbageSend[Cond, lnum] + IsBon
+				LineReturn            += ComboSend[CCount]
+			
+	            if(GMode == 6)		   InGarb = max(0, InGarb - LineReturn)
+	            else
+	            {
 					InGarb -= LineReturn
-                    if(InGarb < 0)
-                    {
-                        EnGarb += abs(InGarb)
-                        InGarb = 0
-                    }
-                }
-            }
+	                if(InGarb < 0)
+	                {
+						EnGarb += abs(InGarb)
+	                    InGarb = 0
+	                }
+	            }
+			}
         }
     }
     else    ComboCount = -1
@@ -180,8 +186,11 @@ if(update and stage == 0)
     }
     else if(GMode == 7)
 	{
-		Polyminoe.CurrentPiece = 0
-		Polyminoe.sprite_index = Point
+		with(Polyminoe)
+		{
+			CurrentPiece = 0
+			sprite_index = Point
+		}
 	}
 	CH = true
     instance_deactivate_object(Polyminoe)

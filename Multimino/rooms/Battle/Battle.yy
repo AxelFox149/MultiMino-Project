@@ -15,7 +15,7 @@
   "layers": [
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"GameMode","path":"objects/GameMode/GameMode.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":832.0,"y":256.0,"resourceVersion":"1.0","name":"inst_3E8474C0","tags":[],"resourceType":"GMRInstance",},
-      ],"visible":true,"depth":-16,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Compatibility_Instances_Depth_-16","tags":[],"resourceType":"GMRInstanceLayer",},
+      ],"visible":true,"depth":-16,"userdefinedDepth":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":64,"gridY":64,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Compatibility_Instances_Depth_-16","tags":[],"resourceType":"GMRInstanceLayer",},
     {"assets":[
         {"spriteId":{"name":"TileSet","path":"sprites/TileSet/TileSet.yy",},"w":64,"h":64,"u0":384,"v0":0,"u1":448,"v1":64,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":0.0,"resourceVersion":"1.0","name":"inst_2A70FBBE","tags":[],"resourceType":"GMRGraphic",},
         {"spriteId":{"name":"TileSet","path":"sprites/TileSet/TileSet.yy",},"w":64,"h":64,"u0":384,"v0":128,"u1":448,"v1":192,"colour":4294967295,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":128.0,"resourceVersion":"1.0","name":"inst_1F91ECE9","tags":[],"resourceType":"GMRGraphic",},

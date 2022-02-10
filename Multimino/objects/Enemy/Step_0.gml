@@ -164,9 +164,11 @@ Spin = RotR + RotL
 
 if(Spin != 0 or DRot)
 {
-    if(DRot)                     DRSOffset()
-    else if(CurrentPiece <= 7)   SRSOffset()
-	else if(CurrentPiece <= 25)  PERSOffset()
+	if(DRot)                    DRSOffset()
+	else if(CurrentPiece <= 7)  SRSOffset()
+	else if(CurrentPiece <= 25) PERSOffset()
+	else if(CurrentPiece <  30) MDTRSOffset()
+	else						SHeRSOffset()
     
     if(ML != 0 and ST and PlaceTimer != ResetTime)
     {

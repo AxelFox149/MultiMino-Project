@@ -540,13 +540,13 @@ if(PixelFade != 0)
 			if(GMode != 10) room_goto(Tablero)
 	        else            
 	        {
-				QueueMode = 2
-					LB = 1;
-                    UB = 29;
-                    TP = 29;
-	            //LB = 1
-	            //UB = 7
-	            //TP = 7
+				QueueMode = 0
+					//LB = 1;
+                    //UB = 29;
+                    //TP = 29;
+	            LB = 1
+	            UB = 7
+	            TP = 7
 	            room_goto(Battle)
 	        }
 		}

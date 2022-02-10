@@ -11,11 +11,15 @@ LanText[0] = ini_read_string("Text","Game[14,0]","a")
 LanText[1] = ini_read_string("Text","Game[14,1]","a")
 ini_close()
 
-ComboDraw  = false
-ComboEnemy = false
-EnLines   =  0
-EnCount   = -1
-EnBTB     =  1
+ComboDraw   =  false
+ComboEnemy  =  false
+EnAC	    =  false
+EnACFrame   =  0
+EnACCounter =  0
+EnSizeCount =  0
+EnLines     =  0
+EnCount     = -1
+EnBTB       =  1
 
 Miss    = false
 PSpin   = false

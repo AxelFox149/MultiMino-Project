@@ -4,7 +4,7 @@
 
 if(DoSwap)
 {
-    if(CH and !update and instance_exists(Enemy) and !(pause or gameover) and GMode != 7)
+    if(CH and !update and instance_exists(Enemy) and !(pause or gameover))
     {
         if(Hold == Point)
         {
@@ -50,6 +50,7 @@ if(update and stage == 0)
             n++
         }
     }
+	
     if(n != 0)
     { 
         ComboCount += 1
@@ -106,9 +107,9 @@ if(update and stage == 0)
             
             if(other.AC)
             {
-                AC        = true
-                ACFrame   = 0
-                ACCounter = 0
+                EnAC        = true
+                EnACFrame   = 0
+                EnACCounter = 0
             }
             
             ComboEnemy = true
@@ -127,7 +128,6 @@ if(stage == 2)
     
     AC    = false
     
-    update = false
     stage  = 3
     frame  = -0.15
     CH     = true

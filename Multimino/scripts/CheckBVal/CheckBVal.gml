@@ -1,7 +1,7 @@
 function CheckBVal(State, ToCheck) {
 
 	if(State >= 4
-	or (CurrentPiece == 6 and State != 1)) exit
+	or (State > PieceMaxState[CurrentPiece])) exit
 
 	var OrInd = CurrentPiece, OrX,OrY,OrState = image_index;
 
@@ -14,10 +14,12 @@ function CheckBVal(State, ToCheck) {
 	var ORBOARD = EnControl.board
 	var NBOARD  = ORBOARD
 	var TempB   = 0
+	var SumH	= 0
 	var PX,PY;
 	var TY;
 	var i, j;
 	var line;
+	var W1, W2, W3, W4;
 	
 	while(Step != 10)
 	    {
@@ -40,7 +42,7 @@ function CheckBVal(State, ToCheck) {
 	        {
 	            if(Step < 5)
 				{
-					x    += 64
+					x += 64
 					Step ++
 				}
 	            else
@@ -220,9 +222,9 @@ function CheckBVal(State, ToCheck) {
 	
 			if(SPR == -1) exit
 			else if(SPR == 13 
-				or (SPR == 31 or SPR == 33 or SPR == 38) 
+				or (SPR == 31 or  SPR == 33 or SPR == 38) 
 				or (SPR >= 52 and SPR <= 54) 
-				or (SPR == 56 or SPR == 58) 
+				or (SPR == 56 or  SPR == 58) 
 				or (SPR >= 83 and SPR <= 87))
 				{
 					ANG *= -1
@@ -288,26 +290,46 @@ function CheckBVal(State, ToCheck) {
 				}
 				if(line) Cleared ++ //Cleared Lines
 			}
-
+			
+			//show_debug_message("Heights: ")
+			//show_debug_message(Bump)
+			
 			//Calculate Bumpiness
-        
+			
+			TempB = 0
+			SumH  = 0
+			
 	        for(i = 0; i < 9; i++)
 			{
+				//TempB  += abs(Bump[i] - Bump[i + 1])
+				//SumH   += Bump[i]
+				
 				Bump[i] = abs(Bump[i] - Bump[i + 1])
 				TempB  += Bump[i]
 			}
-			
-	        TempB = TempB / 9
+			//SumH	+= Bump[9]
 			
 			#endregion
 			
 	        //Calculate score
 			
-	        if(!Scared) TScore = floor(y / 64) - (Holes * 7) - (Cleared * 3) - TempB
-	        else        TScore = floor(y / 64) - (Holes * 7) + (Cleared * 3) - TempB
+			
+			W1 =  1 // 1
+			W2 = -11 //-7
+			W3 =  3 // 3
+			W4 = -5 //-5
+			
+			//TempB = SumH / 9
+			TempB = TempB / 9
+			SumH  = floor(y / 64)
+			
+	        if(!Scared) TScore = (SumH * W1) + (Holes * W2) - (Cleared * W3) + (TempB * W4)
+	        else        TScore = (SumH * W1) + (Holes * W2) + (Cleared * W3) + (TempB * W4)
 	        
+			//show_debug_message("Differences: ")
 			//show_debug_message(Bump)
-			//show_debug_message("y: " + string(floor(y / 64)) + " - Holes: " + string(Holes) + " - Cleared: " + string(Cleared))
+			//show_debug_message("HeigthSum: " + string(SumH) + " - Holes: " + string(Holes) + " - Cleared: " + string(Cleared) + " - Bumpiness: " + string(TempB))
+			//show_debug_message("Score: " + string(TScore))
 			
 			if(Best < TScore) 
 	        {

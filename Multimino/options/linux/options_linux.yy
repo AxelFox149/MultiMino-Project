@@ -1,6 +1,6 @@
 {
   "option_linux_display_name": "MultiMino",
-  "option_linux_version": "1.1.1",
+  "option_linux_version": "1.1.3",
   "option_linux_maintainer_email": "",
   "option_linux_homepage": "https://axelfox149.itch.io/multimino",
   "option_linux_short_desc": "A block falling game made with love",
