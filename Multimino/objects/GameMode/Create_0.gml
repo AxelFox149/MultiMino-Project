@@ -23,6 +23,7 @@ Game Mode Index Value
 	14 = Null
 	15 = Spin Clear Editor
 */
+
 ini_open(LanFile)
 Hint			= ini_read_string("Text", "Game[6]", "a")
 EditorText[0,0] = ini_read_string("Text", "Game[7]", "a")
@@ -297,5 +298,9 @@ ComboSend[18] = 5
 ComboSend[19] = 5
 ComboSend[20] = 5
 
+var InsLayer;
+
+InsLayer = layer_get_id("Compatibility_Instances_Depth_-16")
+instance_create_layer(0,0, InsLayer, Rec_Play_obj)
 /* */
 /*  */

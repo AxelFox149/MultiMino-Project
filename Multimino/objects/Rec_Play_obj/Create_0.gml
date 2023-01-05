@@ -22,6 +22,8 @@ else
 	//_inputSequence[0,1] = 0;
 	_inputSequence = ds_grid_create(17,1)
 	_usedpieces    = ds_list_create()
+	
+	_SecLoaded = false
 
 	// Hotkeys to start/stop recording and playback
 	_kRecord = RecordMode;

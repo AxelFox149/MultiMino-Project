@@ -1,8 +1,10 @@
 /// @description Inserte aquí la descripción
 // Puede escribir su código en este editor
 ini_open(LanFile)
-back = layer_background_get_id("Background");
+back = layer_get_id("Background");
 layer_y(back, 0)
+
+
 
 ExitSec       = false
 frame         = 8

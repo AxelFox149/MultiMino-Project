@@ -20,6 +20,8 @@ function CheckBVal(State, ToCheck) {
 	var i, j;
 	var line;
 	var W1, W2, W3, W4;
+	var Bump = array_create(10, 40), TempB = 0, maxP = 0, minP = 0;
+	var Reset = Bump
 	
 	while(Step != 10)
 	    {
@@ -248,15 +250,15 @@ function CheckBVal(State, ToCheck) {
 				or (SPR >= 27 and SPR <  60) 
 				or (SPR >= 79 and SPR <  87))
 			    {
-			        PX *= 0.5
-			        PY *= 0.5
+			        PX = PX >> 1
+					PY = PY >> 1
 			    }
 				
 				PX += x
 				PY += y
 				
-				PY = floor((PY + 1152) / 64)
-				PX = floor((PX - 1024) / 64)
+				PY = (PY + 1152) >> 6
+				PX = (PX - 1024) >> 6
 				
 				NBOARD[PY][PX] = 1
 			}
@@ -265,7 +267,10 @@ function CheckBVal(State, ToCheck) {
 			//for(i = 20; i < 40; i++) show_debug_message(NBOARD[i])
 			
 			Cleared = 0
-			var Bump = array_create(10, 40), TempB = 0, maxP = 0, minP = 0;
+			Bump  = Reset
+			TempB = 0 
+			maxP  = 0
+			minP  = 0
 			
 			for(i = 15; i < 40; i++)
 			{
@@ -321,7 +326,7 @@ function CheckBVal(State, ToCheck) {
 			
 			//TempB = SumH / 9
 			TempB = TempB / 9
-			SumH  = floor(y / 64)
+			SumH  = y >> 6
 			
 	        if(!Scared) TScore = (SumH * W1) + (Holes * W2) - (Cleared * W3) + (TempB * W4)
 	        else        TScore = (SumH * W1) + (Holes * W2) + (Cleared * W3) + (TempB * W4)

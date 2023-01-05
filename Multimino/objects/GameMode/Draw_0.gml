@@ -271,10 +271,18 @@ if(Fade != 0)
 				NormalMusic  = music_Marathon
 				DangerMusic  = music_Danger_Marathon
 				break;
-				
+			case 5:
+				NormalMusic = music_Blitz
+				DangerMusic = music_Blitz
+				break
 			case 8:
 				NormalMusic  = music_Master_1
 				DangerMusic  = music_Danger_Master_1
+				break;
+			
+			case 7:
+				NormalMusic = music_SpinClear
+				DangerMusic = music_SpinClear
 				break;
 				
 			case 12:

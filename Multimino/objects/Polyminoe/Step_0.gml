@@ -291,7 +291,7 @@ if(Drop and GMode != 12 and CHD)
 		}
 		
     }
-	PlaceTimer = 99
+	//PlaceTimer = 99
 	
 	if(instance_exists(Rec_Play_obj))
 	{

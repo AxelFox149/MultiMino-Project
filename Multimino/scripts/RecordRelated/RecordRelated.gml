@@ -42,28 +42,31 @@ function WriteInputRecording(argument0)
 }
 
 function ReadInputRecording(argument0){
-	ini_open("replays\\" + argument0);
+	if(!_SecLoaded){
+		ini_open("replays\\" + argument0);
 	
-	var BufferStr, TempBuffer;
+		var BufferStr, TempBuffer;
 	
-	BufferStr = ini_read_string("Inputs","str","-1")
-	TempBuffer = buffer_base64_decode(BufferStr)
+		BufferStr = ini_read_string("Inputs","str","-1")
+		TempBuffer = buffer_base64_decode(BufferStr)
 	
-	_inputSequence = Buffer_To_Grid(TempBuffer)
+		_inputSequence = Buffer_To_Grid(TempBuffer)
 	
-	BufferStr = ini_read_string("Pieces","str","-1")
-	TempBuffer = buffer_base64_decode(BufferStr)
+		BufferStr = ini_read_string("Pieces","str","-1")
+		TempBuffer = buffer_base64_decode(BufferStr)
 	
-	_usedpieces = Buffer_To_List(TempBuffer)
-	//ds_grid_read(_inputSequence, ini_read_string("Inputs","0","-1"))
-	//ds_list_read(_usedpieces, ini_read_string("Pieces","0","-1"))
+		_usedpieces = Buffer_To_List(TempBuffer)
+		//ds_grid_read(_inputSequence, ini_read_string("Inputs","0","-1"))
+		//ds_list_read(_usedpieces, ini_read_string("Pieces","0","-1"))
 	
-	buffer_delete(TempBuffer)
+		buffer_delete(TempBuffer)
 	
-	ini_close()
-	
-	
-	TotalFrames = ds_grid_get_max(_inputSequence,0,0,0,ds_grid_height(_inputSequence)) + 1
+		ini_close()
+		
+		TotalFrames = ds_grid_get_max(_inputSequence,0,0,0,ds_grid_height(_inputSequence)) + 1
+		
+		_SecLoaded = true
+	}
 	
 	with(Polyminoe)
 	{
@@ -150,7 +153,7 @@ function ReadInputRecording(argument0){
 
 function PlayInputRecording(){
 	// PlayInputRecording Script
-	if(!pause)
+	if(!pause and !gameover)
 	{
 		if(_index < ds_grid_height(_inputSequence) and _inputSequence[# 0, _index] == _frame)_index++
 

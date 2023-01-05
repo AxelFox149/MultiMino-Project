@@ -1,4 +1,7 @@
 {
+  "resourceType": "GMSprite",
+  "resourceVersion": "1.0",
+  "name": "H_question1",
   "bboxMode": 0,
   "collisionKind": 4,
   "type": 0,
@@ -14,6 +17,7 @@
   "HTile": false,
   "VTile": false,
   "For3D": false,
+  "DynamicTexturePage": false,
   "width": 64,
   "height": 64,
   "textureGroupId": {
@@ -24,21 +28,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"00c9bd95-47c4-4116-aeea-63301fd77c76","path":"sprites/H_question1/H_question1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"00c9bd95-47c4-4116-aeea-63301fd77c76","path":"sprites/H_question1/H_question1.yy",},"LayerId":{"name":"c3bef927-04ec-48c5-afe7-14405985ad90","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"00c9bd95-47c4-4116-aeea-63301fd77c76","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"567b9ab6-a500-41af-b14d-17b68d203aa9","path":"sprites/H_question1/H_question1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"567b9ab6-a500-41af-b14d-17b68d203aa9","path":"sprites/H_question1/H_question1.yy",},"LayerId":{"name":"c3bef927-04ec-48c5-afe7-14405985ad90","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"567b9ab6-a500-41af-b14d-17b68d203aa9","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"4f9c373d-5d33-4b51-bb82-494075a76343","path":"sprites/H_question1/H_question1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"4f9c373d-5d33-4b51-bb82-494075a76343","path":"sprites/H_question1/H_question1.yy",},"LayerId":{"name":"c3bef927-04ec-48c5-afe7-14405985ad90","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"4f9c373d-5d33-4b51-bb82-494075a76343","tags":[],"resourceType":"GMSpriteFrame",},
-    {"compositeImage":{"FrameId":{"name":"8c092a94-6184-47d0-ad92-20392cd01a3b","path":"sprites/H_question1/H_question1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"8c092a94-6184-47d0-ad92-20392cd01a3b","path":"sprites/H_question1/H_question1.yy",},"LayerId":{"name":"c3bef927-04ec-48c5-afe7-14405985ad90","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","name":"8c092a94-6184-47d0-ad92-20392cd01a3b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"00c9bd95-47c4-4116-aeea-63301fd77c76",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"567b9ab6-a500-41af-b14d-17b68d203aa9",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4f9c373d-5d33-4b51-bb82-494075a76343",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"8c092a94-6184-47d0-ad92-20392cd01a3b",},
   ],
   "sequence": {
-    "spriteId": {"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},
+    "resourceType": "GMSequence",
+    "resourceVersion": "1.4",
+    "name": "H_question1",
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -49,12 +47,12 @@
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
-      {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
+      {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"1a474695-3e1b-47ee-b636-30145494dc8c","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"00c9bd95-47c4-4116-aeea-63301fd77c76","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"3b42eb1c-38ca-47f1-a664-c702f9214c88","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"567b9ab6-a500-41af-b14d-17b68d203aa9","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"4ba9e350-70b7-4541-b052-d7a9cc0c97d5","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"4f9c373d-5d33-4b51-bb82-494075a76343","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
             {"id":"ba3b2d7e-c021-4053-8ff1-2787ee5965e5","Key":3.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"8c092a94-6184-47d0-ad92-20392cd01a3b","path":"sprites/H_question1/H_question1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -70,22 +68,13 @@
     "yorigin": 32,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"H_question1","path":"sprites/H_question1/H_question1.yy",},
-    "resourceVersion": "1.3",
-    "name": "H_question1",
-    "tags": [],
-    "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c3bef927-04ec-48c5-afe7-14405985ad90","tags":[],"resourceType":"GMImageLayer",},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c3bef927-04ec-48c5-afe7-14405985ad90","visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default",},
   ],
   "nineSlice": null,
   "parent": {
     "name": "Hexominos",
     "path": "folders/Sprites/Hexominos.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "H_question1",
-  "tags": [],
-  "resourceType": "GMSprite",
 }

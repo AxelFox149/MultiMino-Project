@@ -34,12 +34,12 @@ Compatible[10] = "1.1.0"
 Compatible[11] = "1.1.1"
 Compatible[12] = "1.1.2"
 Compatible[13] = "1.1.3"
-Compatible[14] = "1.1.3"
-Compatible[15] = "1.1.3"
-Compatible[16] = "1.1.3"
-Compatible[17] = "1.1.3"
-Compatible[18] = "1.1.3"
-Compatible[19] = "1.1.3"
+Compatible[14] = "1.1.4"
+Compatible[15] = "1.1.5"
+Compatible[16] = "1.1.5"
+Compatible[17] = "1.1.5"
+Compatible[18] = "1.1.5"
+Compatible[19] = "1.1.5"
 
 //Options
 

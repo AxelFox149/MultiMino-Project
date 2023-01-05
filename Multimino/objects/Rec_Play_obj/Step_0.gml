@@ -10,6 +10,12 @@ if(PlayMode)
 
 	if(SlowDown and _CurrentSpeed != 0) _CurrentSpeed --
 	if(SpeedUp  and _CurrentSpeed != 6) _CurrentSpeed ++
+	
+	if(_frame > TotalFrames){
+		gameover = true
+		GOType   = 16
+		_frame --
+	}
 }
 
 if(pause or gameover) game_set_speed(60, gamespeed_fps)

@@ -1,8 +1,8 @@
 /// @description Ghost
-var DRK;
-DRK = 65 - ((PlaceTimer * 65) / ResetTime)
-DrawPiece(ActivePiece, Xlist, Ylist, RotSt, 2, 2, 0.5, 50, false)
-DrawPiece(CurrentPiece, x, y, image_index, 2, 2, 1, DRK,false)
+//var DRK;
+//DRK = 65 - ((PlaceTimer * 65) / ResetTime)
+//DrawPiece(ActivePiece, Xlist, Ylist, RotSt, 2, 2, 0.5, 50, false)
+DrawPiece(CurrentPiece, x, y, image_index, 2, 2, 1, 0,false)
 
 /*
 

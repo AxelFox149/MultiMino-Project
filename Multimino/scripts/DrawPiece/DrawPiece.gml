@@ -125,15 +125,15 @@ function PieceCollision(XPOS, YPOS)
 		or (SPR >= 27 and SPR <  60) 
 		or (SPR >= 79 and SPR <  87))
 	    {
-	        PX *= 0.5
-	        PY *= 0.5
+	        PX = PX >> 1
+			PY = PY >> 1
 	    }
 		
 		PX += XPOS
 		PY += YPOS
 
-		PX = floor((PX - STR)  / 64)
-		PY = floor((PY + 1152) / 64)
+		PX = (PX - STR)  >> 6
+		PY = (PY + 1152) >> 6
 		
 		if(PX < 0 or PX > SZ) return true;
 		if(PY < 0 or PY > 39) return true;

@@ -1,4 +1,8 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "music_Marathon",
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -10,14 +14,10 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "music_Marathon.ogg",
-  "duration": 75.43357,
+  "soundFile": "music_Marathon.wav",
+  "duration": 89.14286,
   "parent": {
     "name": "Music",
     "path": "folders/Sonidos/Music.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "music_Marathon",
-  "tags": [],
-  "resourceType": "GMSound",
 }

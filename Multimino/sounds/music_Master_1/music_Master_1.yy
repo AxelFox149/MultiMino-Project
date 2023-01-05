@@ -1,4 +1,8 @@
 {
+  "resourceType": "GMSound",
+  "resourceVersion": "1.0",
+  "name": "music_Master_1",
+  "conversionMode": 0,
   "compression": 0,
   "volume": 1.0,
   "preload": false,
@@ -11,13 +15,9 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "music_Master_1.ogg",
-  "duration": 48.005,
+  "duration": 48.0,
   "parent": {
     "name": "Music",
     "path": "folders/Sonidos/Music.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "music_Master_1",
-  "tags": [],
-  "resourceType": "GMSound",
 }
