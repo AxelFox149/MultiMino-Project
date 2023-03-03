@@ -18,7 +18,7 @@ PlayMode		= false
 RecordMode		= true
 TotalFrames		= 0
 CurrentReplay	= ""
-Options[10]		= 1	//NeverMusic
+Options[10]		= 0	//NeverMusic
 
 level = 1
 score = 0
